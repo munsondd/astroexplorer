@@ -1,4 +1,4 @@
-AstroExplorer
+AstroExplorer [![Build Status](https://travis-ci.org/ooagroup/astroexplorer.svg?branch=master)](https://travis-ci.org/ooagroup/astroexplorer)
 ---
 
 ### Development Installation
