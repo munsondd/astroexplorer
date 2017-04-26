@@ -1,12 +1,12 @@
 /*
  * Created by Michael 4/25/17
  */
-public class FileWorldGenerator {
+public class FileWorldGenerator extends WorldGenerator {
 	private String path;
 	
 	public World generate()
 	{
-		return null;
+		return super.generate();
 	}
 	
 	public String getPath()

@@ -1,12 +1,13 @@
+import java.util.Random;
 /*
  * Created by Michael 4/25/17
  */
-public class RandomWorldGenerator {
+public class RandomWorldGenerator extends WorldGenerator {
 	private int seed;
 	
-	public void generate()
+	public World generate()
 	{
-		
+		return null;
 	}
 	
 	public int getSeed()
@@ -21,6 +22,10 @@ public class RandomWorldGenerator {
 	
 	public RandomWorldGenerator(int seed)
 	{
-		
+		//Generate a random seed between 0 and 999 for each random world
+		Random randomGenerator = new Random();
+		this.seed = randomGenerator.nextInt(1000);
+		//Do we want to attach a seed to each random world? How would we do it?
+		super.generate();
 	}
 }

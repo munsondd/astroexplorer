@@ -1,14 +1,14 @@
 /*
  * Created by Michael on 4/25/2017
  */
-public class Tile {
+public class Tile implements ITile {
 	private int type;
 	private int sprite;
-	private int solid;
+	private boolean solid;
 	
 	public boolean isSolid()
 	{
-		return true;
+		return this.solid;
 	}
 	
 	public void pop(TileContext ctx)
