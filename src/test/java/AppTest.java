@@ -9,4 +9,9 @@ public class AppTest {
         App classUnderTest = new App();
         assertNotNull("app should have a greeting", classUnderTest.getGreeting());
     }
+    @Test public void testLocationDistance() {
+        Location l1 = new Location(1.0,3.0);
+        Location l2 = new Location(6.0,9.0);
+        assertEquals(7.81025, l1.distance(l2),0.00005);
+    }
 }
