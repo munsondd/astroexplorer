@@ -4,7 +4,7 @@
 public class Location {
     private double x;
     private double y;
-    //private World world;
+    private World world;
 
     public Location(double x, double y)
     {
@@ -36,6 +36,15 @@ public class Location {
     public void setY(double y)
     {
         this.y = y;
+    }
+
+    public void setWorld(World world)
+    {
+        this.world = world;
+    }
+    public World getWorld()
+    {
+        return this.world;
     }
 
 
