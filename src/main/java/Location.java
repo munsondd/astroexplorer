@@ -1,15 +1,16 @@
 /**
- * Created by david on 4/25/17.
+ * Created by david munson on 4/25/17.
  */
 public class Location {
     private double x;
     private double y;
     private World world;
 
-    public Location(double x, double y)
+    public Location(double x, double y, World world)
     {
         this.x = x;
         this.y = y;
+        this.world = world;
     }
     public double distance(Location l)
     {

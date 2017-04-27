@@ -1,5 +1,5 @@
 /**
- * Created by david on 4/25/17.
+ * Created by david on munson 4/25/17.
  */
 public class Entity {
     private Location position;
