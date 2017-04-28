@@ -1,7 +1,7 @@
-/*
- * Created by Michael on 4/25/2017
- */
+package engine.tile;
+
 public interface ITile {
 
 	public void pop(TileContext ctx);
+
 }

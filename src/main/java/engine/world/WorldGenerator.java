@@ -1,12 +1,13 @@
-/*
- * Created by Michael 4/25/2017
- */
+package engine.world;
+
+import engine.tile.TileFactory;
+
 public class WorldGenerator {
 	
 	private TileFactory factory;
 	
-	public World generate()
-	{
+	public World generate() {
 		return null;
 	}
+
 }

@@ -1,7 +1,7 @@
+package engine.world;
+
 import java.util.Random;
-/*
- * Created by Michael 4/25/17
- */
+
 public class RandomWorldGenerator extends WorldGenerator {
 	private int seed;
 	

@@ -1,6 +1,5 @@
-/**
- * Created by david munson on 4/25/17.
- */
+package engine.entity;
+
 public abstract class MDecorator extends MovableEntity {
 
     private MovableEntity cmp;

@@ -1,6 +1,7 @@
-/**
- * Created by david munson on 4/25/17.
- */
+package engine.character;
+
+import engine.entity.MDecorator;
+
 public class FlyingCharecter extends MDecorator {
 
 

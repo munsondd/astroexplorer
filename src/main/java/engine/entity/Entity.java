@@ -1,6 +1,7 @@
-/**
- * Created by david on munson 4/25/17.
- */
+package engine.entity;
+
+import engine.world.Location;
+
 public class Entity {
     private Location position;
     private int sprite;
