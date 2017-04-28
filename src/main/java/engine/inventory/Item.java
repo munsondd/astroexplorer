@@ -2,28 +2,29 @@ package engine.inventory;
 
 class Item extends Object{
 	private int maxItems = 10;
-        Item[] itemList = new Item[maxItems];
+    Item[] itemList = new Item[maxItems];
 
-	int id;
+	int ID;
 	String name;
 	int price;
 	int quantity;
 
-  public Item(int ID, String name, int price,int quantity) {
-    id = ID;
-    name = name;
-    price = price;
-    this.quantity = quantity;
+    public Item(int itemID, String Itemname, int Itemprice,int Itemquantity) {
+        ID = itemID;
+        name = Itemname;
+        price = Itemprice;
+        quantity = Itemquantity;
+    }
+    public int GetQuantity(){
+    return quantity;
   }
-	void Item(){
-    	id = 0;
-  	}
-  void GetQuantity(){
-    return;
-  }
+
+    public void SetQuantity(int q) {
+        //is this adding to quantity or subtracting?
+    }
   	
 	void FindItem(int id){
-      System.out.println(itemList[id].id + " " + itemList[id].name + " " +
+      System.out.println(itemList[id].ID + " " + itemList[id].name + " " +
                     itemList[id].price + " " + itemList[id].quantity);
         }
     void displayItemList(){

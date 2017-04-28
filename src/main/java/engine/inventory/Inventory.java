@@ -1,19 +1,22 @@
 package engine.inventory;
 
-public class Inventory {
+import java.util.ArrayList;
+import java.util.Objects;
+
+public class Inventory extends Object{
     //HashMap<String,ArrayList<Item>> items = new HashMap<String,ArrayList<Item>>();
     private int MAX_INVENTORY_SIZE = 10;
     private Item[] items = new Item[MAX_INVENTORY_SIZE];
-    private int id;
+    int ID;
     String name;
     int price;
     int quantity;
 
     Inventory() {
-        id = 0;
+        ID = 0;
     }
 
-    private Inventory(String name, int price, int quantity) {
+    public Inventory(String ItemName, int Itemprice, int Itemquantity, int itemID) {
         // this.
     }
 
@@ -47,7 +50,6 @@ public class Inventory {
     */
     }
 
-    public void getItems() {
-
-    }
+    //public int getItems() {
+    //}
 }
