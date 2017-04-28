@@ -1,10 +1,21 @@
-package engine.inventory;
+package engine.Storage
 
-public class Inventory {
+public class Inventory
+{
   //HashMap<String,ArrayList<Item>> items = new HashMap<String,ArrayList<Item>>();
-  private static final int MAX_INVENTORY_SIZE = 10;
+  private  int MAX_INVENTORY_SIZE = 10;
   private Item[] items = new Item[MAX_INVENTORY_SIZE];
+  private int id;
+  String name;
+  int price;
+  int quantity;
 
+  Inventory(){
+    id = 0;
+  }
+  private Inventory(String name,int price,int quantity) {
+    this. 
+  }
   private int findFreeSlot() {
     for (int i=0;i<items.length;i++) {
       if (items[i] == null) {
@@ -25,7 +36,7 @@ public class Inventory {
 
   public void removeItem(String name){
     for (int i=0;i<items.length;i++) {
-      if (items[i].equals(name)) {
+      if (items[i].equals(item)) {
         Item temp = items[i];
         items[i] = null;
         return temp;

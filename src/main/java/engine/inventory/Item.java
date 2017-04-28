@@ -1,22 +1,27 @@
-package engine.inventory;
+package engine.Storage
 
-class Item {
+class Item extends Object{
 	private int maxItems = 10;
         Item[] itemList = new Item[maxItems];
 
-	private int id;
+	int id;
 	String name;
 	int price;
 	int quantity;
 
+  public Item(int ID, String name, int price,int quantity) {
+    id = ID
+    name = name;
+    price = price;
+    this.quantity = quantity;
+  }
 	Item(){
     	id = 0;
   	}
-  	private Item(String name,int price,int quantity) {
-	    this.name = name;
-	    this.price = price;
-	    this.quantity = quantity;
-	}
+  GetQuantity(){
+    return 
+  }
+  	
 	void FindItem(int id){
       System.out.println(itemList[id].id + " " + itemList[id].name + " " +
                     itemList[id].price + " " + itemList[id].quantity);
