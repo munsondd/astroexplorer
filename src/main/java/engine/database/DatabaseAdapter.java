@@ -38,6 +38,8 @@ public class DatabaseAdapter {
         } catch(SQLException e) {
 
         }
+
+        return connection;
     }
 
 }
