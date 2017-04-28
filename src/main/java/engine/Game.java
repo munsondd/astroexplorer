@@ -1,8 +1,8 @@
-/*
- * Singleton Class for Game
- * 
- * Skeleton created on 4/25 by Michael
- */
+package engine;
+
+import engine.settings.Settings;
+import engine.world.World;
+
 public class Game {
 	private Settings settings;
 	private World world;

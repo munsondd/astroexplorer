@@ -1,3 +1,5 @@
+package engine.inventory;
+
 class Item {
 	private int maxItems = 10;
         Item[] itemList = new Item[maxItems];

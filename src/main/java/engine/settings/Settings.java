@@ -1,8 +1,5 @@
-/*
- * Settings Class
- * 
- * Created on 4/25
- */
+package engine.settings;
+
 public class Settings {
 	
 	private int resolutionX;

@@ -1,10 +1,8 @@
-import java.io.File;
+package engine;
 
-/*
- * GameState Class
- * 
- * Created on 4/25
- */
+import engine.world.World;
+
+import java.io.File;
 
 public class GameState {
 	private char Character;
