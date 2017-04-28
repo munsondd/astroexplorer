@@ -1,4 +1,4 @@
-package engine.Storage
+package engine.inventory;
 
 class Item extends Object{
 	private int maxItems = 10;
@@ -10,16 +10,16 @@ class Item extends Object{
 	int quantity;
 
   public Item(int ID, String name, int price,int quantity) {
-    id = ID
+    id = ID;
     name = name;
     price = price;
     this.quantity = quantity;
   }
-	Item(){
+	void Item(){
     	id = 0;
   	}
-  GetQuantity(){
-    return 
+  void GetQuantity(){
+    return;
   }
   	
 	void FindItem(int id){
@@ -27,10 +27,12 @@ class Item extends Object{
                     itemList[id].price + " " + itemList[id].quantity);
         }
     void displayItemList(){
+        /*
         System.out.println("ID " + "Name " + "Price " + "Quantity ");
         for (int i = 0; i < id; i++){
             System.out.println(itemDB[i].id + " " + itemDB[i].name + " " +
                     itemDB[i].price + " " + itemDB[i].quantity);
         }
+        */
     }
   }

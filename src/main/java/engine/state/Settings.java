@@ -1,4 +1,4 @@
-package engine.settings;
+package engine.state;
 
 public class Settings {
 	

@@ -1,56 +1,57 @@
 package engine;
 
-import engine.settings.Settings;
+import engine.state.GameState;
+import engine.state.Settings;
 import engine.world.World;
 
 public class Game {
+
 	private Settings settings;
 	private World world;
 	private GameState state;
 	private Game instance;
-	
-	public void init()
-	{
+
+    public Game() {
+        this.settings = new Settings();
+        this.world = new World();
+        this.state = new GameState();
+        this.instance = new Game();
+    }
+
+	public void init() {
 		
 	}
 	
-	public void showMenu()
-	{
+	public void showMenu() {
 		
 	}
 	
-	public void hideMenu()
-	{
+	public void hideMenu() {
 		
 	}
 	
-	public void keypress()
-	{
+	public void keypress() {
 		
 	}
 	
-	public void mouseDown()
-	{
+	public void mouseDown() {
 		
 	}
 	
-	public int exit()
-	{
+	public int exit() {
 		return 0;
 	}
 	
-	public void displayMessage(String msg)
-	{
+	public void displayMessage(String msg) {
 		
 	}
 	
-	public Game getInstance()
-	{
+	public Game getInstance() {
 		return null;
 	}
 	
-	public void newOperation()
-	{
+	public void newOperation() {
 		
 	}
+
 }
