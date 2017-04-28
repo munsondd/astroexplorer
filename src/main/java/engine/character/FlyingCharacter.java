@@ -2,12 +2,11 @@ package engine.character;
 
 import engine.entity.MDecorator;
 
-public class FlyingCharecter extends MDecorator {
-
+public class FlyingCharacter extends MDecorator {
 
     private double propulsionPower;
 
-    public FlyingCharecter(int sprite, int height, int width, boolean solid,double direction, double xVelocity, double yVelocity, double propulsionPower)
+    public FlyingCharacter(int sprite, int height, int width, boolean solid,double direction, double xVelocity, double yVelocity, double propulsionPower)
     {
         super(sprite, height, width, solid, direction, xVelocity, yVelocity);
         this.propulsionPower = propulsionPower;

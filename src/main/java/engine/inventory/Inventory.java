@@ -1,5 +1,6 @@
-public class Inventory
-{
+package engine.inventory;
+
+public class Inventory {
   //HashMap<String,ArrayList<Item>> items = new HashMap<String,ArrayList<Item>>();
   private static final int MAX_INVENTORY_SIZE = 10;
   private Item[] items = new Item[MAX_INVENTORY_SIZE];
@@ -24,7 +25,7 @@ public class Inventory
 
   public void removeItem(String name){
     for (int i=0;i<items.length;i++) {
-      if (items[i].equals(item)) {
+      if (items[i].equals(name)) {
         Item temp = items[i];
         items[i] = null;
         return temp;
