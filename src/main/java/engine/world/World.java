@@ -12,7 +12,14 @@ public class World {
 	private long time;
 	
 	public void init(WorldGenerator wgen) {
-		
+		this.time = 0;
+		World w = wgen.generate();
+		this.tiles = w.getTiles();
+	}
+	
+	public List<List<Tile>> getTiles()
+	{
+		return this.tiles;
 	}
 	
 	public long getTime() {

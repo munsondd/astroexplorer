@@ -7,7 +7,7 @@ public class RandomWorldGenerator extends WorldGenerator {
 	
 	public World generate()
 	{
-		return super.generate();
+		return null;
 	}
 	
 	public int getSeed()

@@ -5,7 +5,7 @@ public class FileWorldGenerator extends WorldGenerator {
 	private String path;
 	
 	public World generate() {
-		return super.generate();
+		return null;
 	}
 	
 	public String getPath() {

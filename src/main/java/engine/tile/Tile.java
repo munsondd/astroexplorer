@@ -20,7 +20,34 @@ public class Tile implements ITile {
 		return this.solid;
 	}
 	
+	public int getType()
+	{
+		return this.type;
+	}
+	
+	public void setType(int type)
+	{
+		this.type = type;
+	}
+	
+	public int getSprite()
+	{
+		return this.sprite;
+	}
+	
+	public void setSprite(int sprite)
+	{
+		this.sprite = sprite;
+	}
+	
+	public void setSolid(boolean solid)
+	{
+		this.solid = solid;
+	}
+	
 	public void pop(TileContext ctx) {
+		
+		ctx.nextTile(this.type);
 		
 	}
 

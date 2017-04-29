@@ -18,6 +18,6 @@ public class TileFactory {
 	}
 	
 	public int getNumTypes() {
-		return 0;
+		return types.size();
 	}
 }
