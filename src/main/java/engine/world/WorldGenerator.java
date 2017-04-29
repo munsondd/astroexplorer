@@ -2,12 +2,10 @@ package engine.world;
 
 import engine.tile.TileFactory;
 
-public class WorldGenerator {
+public abstract class WorldGenerator {
 	
 	private TileFactory factory;
 	
-	public World generate() {
-		return null;
-	}
+	public abstract World generate();
 
 }
