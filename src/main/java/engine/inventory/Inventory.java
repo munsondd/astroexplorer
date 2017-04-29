@@ -3,7 +3,7 @@ package engine.inventory;
 import java.util.ArrayList;
 import java.util.Objects;
 
-public class Inventory extends Object{
+public class Inventory{
     //HashMap<String,ArrayList<Item>> items = new HashMap<String,ArrayList<Item>>();
     private int MAX_INVENTORY_SIZE = 10;
     private Item[] items = new Item[MAX_INVENTORY_SIZE];

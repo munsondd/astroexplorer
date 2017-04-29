@@ -1,26 +1,39 @@
 package engine.inventory;
 
-class Item extends Object{
+import engine.entity.Entity;
+
+public class Item{
 	private int maxItems = 10;
+    private int type, sprite, quantity, price;
+    String name;
+    private int ID;
+    //Item[] itemList = new Item[maxItems];
+
+    public Item(int type, int sprite){
+        this.type = type;
+        this.sprite = sprite;
+    }
     Item[] itemList = new Item[maxItems];
 
-	int ID;
-	String name;
-	int price;
-	int quantity;
-
-    public Item(int itemID, String Itemname, int Itemprice,int Itemquantity) {
+    /*
+    public Item(int itemID, String Itemname, int ItemPrice,int Itemquantity) {
         ID = itemID;
         name = Itemname;
-        price = Itemprice;
+        price = ItemPrice;
         quantity = Itemquantity;
     }
+    */
     public int GetQuantity(){
     return quantity;
   }
 
-    public void SetQuantity(int q) {
-        //is this adding to quantity or subtracting?
+    public void SetQuantity(int sprite,int q) {
+        for(int i = 1; i <= 10; i++){
+            if(sprite == this.sprite) {
+                this.quantity = this.quantity + q;
+            }
+        }
+        this.quantity = q++;
     }
   	
 	void FindItem(int id){
