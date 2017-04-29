@@ -4,9 +4,7 @@ public class Item extends Inventory implements Cloneable{
 	//private int maxItems = 10;
     private int type, sprite, quantity;
 
-    public Item(int t, int s){
-        this.type = t;
-        this.sprite = s;
+    public Item(){
     }
     public Item clone()throws CloneNotSupportedException{
         return (Item)super.clone();
@@ -16,6 +14,20 @@ public class Item extends Inventory implements Cloneable{
     }
     public void SetQuantity(int q) {
         this.quantity = q;
+    }
+
+    public int GetType(){
+        return this.type;
+    }
+    public void SetType(int t) {
+        this.type = t;
+    }
+
+    public int GetSprite(){
+        return this.sprite;
+    }
+    public void SetSprite(int s) {
+        this.sprite = s;
     }
 
     }
