@@ -7,9 +7,13 @@ import java.util.List;
 
 public class World {
 
-    // Currently going to use ArrayList, can change to just array if needed
 	private List<List<Tile>> tiles;
 	private long time;
+
+    public World() {
+        this.tiles = new ArrayList<>();
+        this.time = 0L;
+    }
 	
 	public void init(WorldGenerator wgen) {
 		this.time = 0;
@@ -33,4 +37,5 @@ public class World {
 	public void addTime(long dur) {
 		this.time += dur;
 	}
+
 }

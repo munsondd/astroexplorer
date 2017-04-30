@@ -5,7 +5,11 @@ import java.util.Map;
 
 public class TileFactory {
 	
-	private HashMap<Integer, Tile> types;
+	private Map<Integer, Tile> types;
+
+    public TileFactory() {
+        this.types = new HashMap<>();
+    }
 	
 	public Tile getTile(Integer type) {
 		if (this.types.containsKey(type)) {
@@ -20,4 +24,5 @@ public class TileFactory {
 	public int getNumTypes() {
 		return types.size();
 	}
+
 }

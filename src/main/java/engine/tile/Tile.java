@@ -46,9 +46,7 @@ public class Tile implements ITile {
 	}
 	
 	public void pop(TileContext ctx) {
-		
 		ctx.nextTile(this.type);
-		
 	}
 
 }
