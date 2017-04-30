@@ -2,9 +2,11 @@ package engine.tile;
 
 public class Tile implements ITile {
 
+	private static final String e = null;
 	private int type;
 	private int sprite;
 	private boolean solid;
+	private TileContext curTile;
 
 	public Tile(int type) {
 		this.type = type;
@@ -45,8 +47,9 @@ public class Tile implements ITile {
 		this.solid = solid;
 	}
 	
-	public void pop(TileContext ctx) {
-		ctx.nextTile(this.type);
+	public void pop(TileContext ctx) 
+	{
+		this.curTile = ctx;
 	}
 
 }

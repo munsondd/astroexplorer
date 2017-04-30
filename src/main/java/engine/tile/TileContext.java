@@ -12,8 +12,8 @@ public class TileContext {
 		this.tile = t;
 	}
 	
-	public Tile nextTile(int type) {
-		return null;
+	public Tile nextTile() {
+		return w.getFactory().getTile(this.tile.getType());
 	}
 
 }
