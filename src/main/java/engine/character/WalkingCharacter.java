@@ -4,27 +4,24 @@ import engine.entity.MDecorator;
 import engine.world.Location;
 
 public class WalkingCharacter extends MDecorator {
-    
 
-    public WalkingCharacter(int sprite, int height, int width, boolean solid,double direction, double xVelocity, double yVelocity)
-    {
+    public WalkingCharacter(int sprite, int height, int width, boolean solid,double direction, double xVelocity, double yVelocity) {
         super(sprite, height, width, solid, direction, xVelocity, yVelocity);
     }
 
-    public void move()
-    {
-        double newXposition = this.getPosition().getX() + this.getxVelocity();
-        double newYposition = this.getPosition().getY() + this.getyVelocity();
+    public void move() {
+        double newPositionX = this.getPosition().getX() + this.getVelocityX();
+        double newPositionY = this.getPosition().getY() + this.getVelocityY();
 
-        this.getPosition().setX(newXposition);
-        this.getPosition().setY((newYposition));
+        this.getPosition().setX(newPositionX);
+        this.getPosition().setY(newPositionY);
 
-        this.setxVelocity(0.0);
-        this.setyVelocity(0.0);
+        this.setVelocityX(0.0);
+        this.setVelocityY(0.0);
     }
 
-    public Location drill()
-    {
+    public Location drill() {
         return this.getPosition();
     }
+
 }

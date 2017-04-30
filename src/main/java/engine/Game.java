@@ -12,9 +12,9 @@ public class Game {
 	private Game instance;
 
     public Game() {
-        this.settings = new Settings();
+        this.settings = new Settings("./settings.db");
         this.world = new World();
-        this.state = new GameState();
+        this.state = new GameState("./astroexplorer.db");
         this.instance = new Game();
     }
 

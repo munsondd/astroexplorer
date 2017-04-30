@@ -2,60 +2,51 @@ package engine.entity;
 
 public abstract class MovableEntity extends Entity {
 
-    private double xVelocity = 0;
-    private double yVelocity = 0;
+    private double velocityX = 0;
+    private double velocityY = 0;
     private double direction;
 
-    public MovableEntity(int sprite, int height, int width, boolean solid, double direction)
-    {
+    public MovableEntity(int sprite, int height, int width, boolean solid, double direction) {
         super(sprite, height, width, solid);
         this.direction = direction;
     }
-    public MovableEntity(int sprite, int height, int width, boolean solid, double direction, double xVelocity, double yVelocity)
-    {
+
+    public MovableEntity(int sprite, int height, int width, boolean solid, double direction, double velocityX, double velocityY) {
         super(sprite, height, width, solid);
         this.direction = direction;
-        this.xVelocity = xVelocity;
-        this.yVelocity = yVelocity;
+        this.velocityX = velocityX;
+        this.velocityY = velocityY;
     }
 
     public abstract void move();
 
-    public double getxVelocity ()
-    {
-        return this.xVelocity;
+    public double getVelocityX() {
+        return this.velocityX;
     }
 
-    public void setxVelocity(double xVelocity)
-    {
-        this.xVelocity = xVelocity;
-    }
-    public double getyVelocity()
-    {
-        return this.yVelocity;
+    public void setVelocityX(double xVelocity) {
+        this.velocityX = xVelocity;
     }
 
-    public void setyVelocity(double yVelocity)
-    {
-        this.yVelocity = yVelocity;
+    public double getVelocityY() {
+        return this.velocityY;
     }
 
-    public void setVelocity(double xVelocity, double yVelocity)
-    {
-        this.xVelocity = xVelocity;
-        this.yVelocity = yVelocity;
+    public void setVelocityY(double velocityY) {
+        this.velocityY = velocityY;
     }
 
-    public double getDirection()
-    {
+    public void setVelocity(double velocityX, double velocityY) {
+        this.velocityX = velocityX;
+        this.velocityY = velocityY;
+    }
+
+    public double getDirection() {
         return this.direction;
     }
 
-    public void setDirection(double direction)
-    {
+    public void setDirection(double direction) {
         this.direction = direction;
     }
-
-
 
 }

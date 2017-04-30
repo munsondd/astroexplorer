@@ -2,8 +2,12 @@ package engine.world;
 
 public class FileWorldGenerator extends WorldGenerator {
 
-	private String path;
-	
+    private String path;
+
+    public FileWorldGenerator(String path) {
+        this.path = path;
+    }
+
 	public World generate() {
 		return null;
 	}

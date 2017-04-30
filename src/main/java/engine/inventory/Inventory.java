@@ -1,21 +1,48 @@
 package engine.inventory;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Inventory {
-    //private int MAX_INVENTORY_SIZE = 10;
-    ArrayList<Item> items = new ArrayList<Item>();
+
+    private List<Item> items;
 
     public Inventory() {
+        this.items = new ArrayList<>();
     }
-    public ArrayList<Item> getItems() {
-        return items;
+
+    /**
+     * Get all the items in this inventory.
+     * @return
+     */
+    public List<Item> getItems() {
+        return this.items;
     }
-    public void addItem(Item item) { items.add(item);}
-    public void RemoveItem(Item item) { items.remove(item);}
+
+    /**
+     * Add an item to this inventory.
+     * @param item the item to be added
+     */
+    public boolean addItem(Item item) {
+        return this.items.add(item);
+    }
+
+    /**
+     * Remove an item from this inventory.
+     * @param item the item to be removed
+     */
+    public boolean removeItem(Item item) {
+        return this.items.remove(item);
+    }
+
+    /**
+     * Clears this inventory.
+     * @return int the number of items deleted
+     */
     public int clear() {
+        int l = this.items.size();
         items.clear();
-        return 1;
+        return l;
     }
 
 }

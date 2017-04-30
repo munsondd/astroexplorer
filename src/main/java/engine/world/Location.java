@@ -37,8 +37,13 @@ public class Location {
     public void setWorld(World world) {
         this.world = world;
     }
+
     public World getWorld() {
         return this.world;
+    }
+
+    public Location clone() {
+        return new Location(this.x, this.y, this.world);
     }
 
 }

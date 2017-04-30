@@ -1,39 +1,47 @@
 package engine.character;
 
 public class Statistics {
+
     private double fuel, health, oxygen;
-    private int Inventorysize;
+    private int inventorySize;
 
     public double getFuel() {
         return this.fuel;
     }
-    public void setFuel(double f) {
-        this.fuel = f;
+
+    public void setFuel(double fuel) {
+        this.fuel = fuel;
     }
+
     public double getHealth() {
         return this.health;
     }
-    public void setHealth(double h) {
-        this.health = h;
+
+    public void setHealth(double health) {
+        this.health = health;
     }
+
     public double getOxygen() {
         return this.oxygen;
     }
-    public void setOxygen(double o) {
-        this.oxygen = o;
+
+    public void setOxygen(double oxygen) {
+        this.oxygen = oxygen;
     }
 
-    public int getInventorysize() {
-        return this.Inventorysize;
+    public int getInventorySize() {
+        return this.inventorySize;
     }
-    public void setInventorysize(double i) {
-        this.fuel = i;
+
+    public void setInventorySize(int inventorySize) {
+        this.inventorySize = inventorySize;
     }
+
     public void reset() {
-        fuel = 100;
-        health = 100;
-        oxygen = 100;
-        Inventorysize = 10;
+        this.fuel = 100;
+        this.health = 100;
+        this.oxygen = 100;
+        this.inventorySize = 10;
     }
 
 }

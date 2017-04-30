@@ -1,20 +1,26 @@
 package engine.inventory;
-import java.util.ArrayList;
 
-public class Shop extends Inventory {
-    private int timesOpened;
+import engine.entity.Entity;
+
+public class Shop extends Entity {
+
     private Inventory items;
+    private int timesOpened;
 
-    public void SetTimesOpened() {
-        this.timesOpened++;
+    public Shop(int sprite, int height, int width, boolean solid) {
+        super(sprite, height, width, solid);
     }
-    public int GetAccessCount() {
+
+    public boolean buyItem(Item i) {
+        return this.items.removeItem(i);
+    }
+
+    public boolean sellItem(Item i) {
+        return this.items.addItem(i);
+    }
+
+    public int getAccessCount() {
         return this.timesOpened;
     }
-    /*
-    public boolean BuyItem(items i) {
-        if (items.contains()
-    } // No idea about this and sell
-    */
 
 }

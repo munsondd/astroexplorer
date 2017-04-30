@@ -4,12 +4,16 @@ import engine.world.World;
 
 import java.io.File;
 
-public class GameState {
+public class GameState extends StateManager {
 
 	private char Character;
 	private World world;
-	
-	public String serialize() {
+
+    public GameState(String filename) {
+        super(filename);
+    }
+
+    public String serialize() {
 		return null;
 	}
 	
