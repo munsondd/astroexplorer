@@ -9,6 +9,13 @@ public class Entity {
     private int width;
     private boolean solid;
 
+    public Entity(Location position, int height, int width, boolean solid)
+    {
+        this.position = position;
+        this.height = height;
+        this.width = width;
+        this.solid = solid;
+    }
     public Entity(int sprite, int height, int width, boolean solid)
     {
         this.sprite = sprite;

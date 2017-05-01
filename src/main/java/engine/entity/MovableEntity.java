@@ -1,11 +1,16 @@
 package engine.entity;
 
+import engine.world.Location;
+
 public abstract class MovableEntity extends Entity {
 
     private double velocityX = 0;
     private double velocityY = 0;
-    private double direction;
+    private double direction = 0;
 
+    public MovableEntity(Location position, int height, int width, boolean solid) {
+        super(position, height, width, solid);
+    }
     public MovableEntity(int sprite, int height, int width, boolean solid, double direction) {
         super(sprite, height, width, solid);
         this.direction = direction;

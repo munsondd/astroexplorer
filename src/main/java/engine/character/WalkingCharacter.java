@@ -1,15 +1,22 @@
 package engine.character;
 
 import engine.entity.MDecorator;
+import engine.entity.MovableEntity;
 import engine.world.Location;
 
 public class WalkingCharacter extends MDecorator {
+
+    public WalkingCharacter(Location position, int height, int width, MovableEntity cmp){
+        super(position, height, width, true, cmp);
+    }
 
     public WalkingCharacter(int sprite, int height, int width, boolean solid,double direction, double xVelocity, double yVelocity) {
         super(sprite, height, width, solid, direction, xVelocity, yVelocity);
     }
 
     public void move() {
+
+        
         double newPositionX = this.getPosition().getX() + this.getVelocityX();
         double newPositionY = this.getPosition().getY() + this.getVelocityY();
 
