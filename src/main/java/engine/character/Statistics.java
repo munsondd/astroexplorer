@@ -37,6 +37,20 @@ public class Statistics {
         this.inventorySize = inventorySize;
     }
 
+    public boolean GetStats() {
+        if(getFuel() == 0 || getHealth() == 0 || getOxygen() == 0) {
+            return false;
+        }
+        else {
+            System.out.println("STATS");
+            System.out.println("----------------");
+            System.out.println("Fuel:" + getFuel());
+            System.out.println("Health:" + getHealth());
+            System.out.println("Oxygen:" + getOxygen());
+            return true;
+        }
+    }
+
     public void reset() {
         this.fuel = 100;
         this.health = 100;
