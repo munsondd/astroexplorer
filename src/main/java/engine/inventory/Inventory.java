@@ -3,7 +3,7 @@ package engine.inventory;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Inventory {
+public class Inventory extends Item{
 
     private List<Item> items;
 

@@ -1,10 +1,12 @@
 package engine.inventory;
 
-public class Item extends Inventory implements Cloneable{
+public class Item implements Cloneable{
 	//private int maxItems = 10;
-    private int type, sprite, quantity;
+    private int type, quantity;
 
-    public Item(){
+    public Item(int t, int q){
+        this.type = t;
+        this.quantity = q;
     }
     public Item clone()throws CloneNotSupportedException{
         return (Item)super.clone();
