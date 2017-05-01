@@ -40,6 +40,10 @@ public class AstroExplorerText {
             if(in.equals("help")){
                 this.display(Constants.HELPMESSAGE);
             }
+            if(in.equals("stats")){
+                Character ch = (Character) player.getCmp();
+                this.display(ch.getStatistics().toString());
+            }
         }
     }
 

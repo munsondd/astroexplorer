@@ -2,8 +2,10 @@ package engine.character;
 
 public class Statistics {
 
-    private double fuel, health, oxygen;
-    private int inventorySize;
+    private double fuel = 0;
+    private double health = 0;
+    private double oxygen = 0;
+    private int inventorySize =0;
 
     public double getFuel() {
         return this.fuel;
@@ -56,6 +58,14 @@ public class Statistics {
         this.health = 100;
         this.oxygen = 100;
         this.inventorySize = 10;
+    }
+
+    public String toString(){
+       return "STATS\n" +
+        "----------------\n" +
+        "Fuel:" + getFuel() + "\n" +
+        "Health:" + getHealth() + "\n"  +
+        "Oxygen:" + getOxygen() + "\n";
     }
 
 }

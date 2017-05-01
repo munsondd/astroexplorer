@@ -19,4 +19,9 @@ public abstract class MDecorator extends MovableEntity {
 
     public abstract void move();
 
+    public MovableEntity getCmp()
+    {
+        return this.cmp;
+    }
+
 }
