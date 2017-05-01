@@ -1,6 +1,7 @@
 import engine.character.Character;
 import engine.entity.MDecorator;
 import engine.entity.MovableEntity;
+import engine.inventory.Shop;
 import engine.text.Constants;
 import engine.tile.Tile;
 import engine.world.Location;
@@ -47,6 +48,8 @@ public class AstroExplorerText {
                 boolean upgrades = true;
                 while(upgrades){
                     this.display(Constants.ShopUpgrade);
+                    in = this.prompt().toLowerCase();
+                    dispatch(in);
                     upgrades = false;
                 }
             }
@@ -65,7 +68,6 @@ public class AstroExplorerText {
      */
     public void start() {
         this.display(Constants.WELCOME);
-        // System.out.println(Constants.MAINMENU);
         //load character into world
         this.display(Constants.NAMEPROPMT);
         String name = this.prompt();
@@ -80,73 +82,86 @@ public class AstroExplorerText {
         
         Location startingPosition = new Location(1.0,2.0,world);
 
+        Shop ship = new Shop(false, false, false, false); //sets ship parts as broken and victory condition as false
+
         Character chr = new Character(0,1,1,true,0.0, "player");
         MDecorator player = new WalkingCharacter(startingPosition, 1,1,chr);
 
         while (this.running) {
-            int positionX = (int)player.getPosition().getX();
-            int positionY = (int)player.getPosition().getY();
+            this.display("----------------------------------------------------------");
+            if (!ship.WinCheck()) {
+                int positionX = (int) player.getPosition().getX();
+                int positionY = (int) player.getPosition().getY();
 
-            Tile currentTile = world.getTiles().get(positionX).get(positionY);
+                Tile currentTile = world.getTiles().get(positionX).get(positionY);
 
-            if(currentTile.getType() == 1){
-                player = new FlyingCharacter(player.getPosition(),player.getHeight(),player.getWidth(),player.getCmp());
-            }
-            else{
-                player = new WalkingCharacter(player.getPosition(),player.getHeight(),player.getWidth(),player.getCmp());
-            }
-            this.display(player.toString());
-            this.display("you are on a " +currentTile.toString() + "\n");
-
-            String in = this.prompt().toLowerCase();
-            this.dispatch(in);
-            if(in.equals("help")){
-                this.display(Constants.HELPMESSAGE);
-            }
-            if(in.equals("hints")){
-                this.display(Constants.HINTSMESSAGE);
-            }
-            if(in.equals("stats")){
-                Character ch = (Character) player.getCmp();
-                this.display(ch.getStatistics().toString());
-            }
-            if(in.equals("up")){
-                player.setVelocityY(player.getVelocityY()+1);
-            }
-            if(in.equals("down")){
-                player.setVelocityY(player.getVelocityY()-1);
-            }
-            if (in.equals("left")){
-                player.setVelocityX(player.getVelocityX()-1);
-            };
-            if(in.equals("right")){
-                player.setVelocityX(player.getVelocityX()+1);
-            }
-            if(in.equals("quit")){
-                this.running = false;
-            }
-            if(in.equals("inventory")){
-                Character ch = (Character) player.getCmp();
-                this.display(ch.getBackpack().toString());
-            }
-            if(in.equals("shop")){
-                if(currentTile.getType() == 5){
-                    Shop();
+                if (currentTile.getType() == 1) {
+                    player = new FlyingCharacter(player.getPosition(), player.getHeight(), player.getWidth(), player.getCmp());
+                } else {
+                    player = new WalkingCharacter(player.getPosition(), player.getHeight(), player.getWidth(), player.getCmp());
                 }
-                else { this.display("You are not in the shop right now"); }
+                this.display(player.toString());
+                this.display("you are on a " + currentTile.toString() + "\n");
 
-            }
-            if(in.equals("drill")){
-                if(currentTile.getType() == 3){
+                String in = this.prompt().toLowerCase();
+                this.dispatch(in);
+                if (in.equals("help")) {
+                    this.display(Constants.HELPMESSAGE);
                 }
-                else { this.display("This tile is not mineable"); }
-                
-            }
-            player.move();
+                if (in.equals("hints")) {
+                    this.display(Constants.HINTSMESSAGE);
+                }
+                if (in.equals("repairs")) {
+                    this.display(ship.toString());
+                }
+                if (in.equals("stats")) {
+                    Character ch = (Character) player.getCmp();
+                    this.display(ch.getStatistics().toString());
+                }
+                if (in.equals("up")) {
+                    player.setVelocityY(player.getVelocityY() + 1);
+                }
+                if (in.equals("down")) {
+                    player.setVelocityY(player.getVelocityY() - 1);
+                }
+                if (in.equals("left")) {
+                    player.setVelocityX(player.getVelocityX() - 1);
+                }
+                ;
+                if (in.equals("right")) {
+                    player.setVelocityX(player.getVelocityX() + 1);
+                }
+                if (in.equals("quit")) {
+                    this.running = false;
+                }
+                if (in.equals("inventory")) {
+                    Character ch = (Character) player.getCmp();
+                    this.display(ch.getBackpack().toString());
+                }
+                if (in.equals("shop")) {
+                    if (currentTile.getType() == 5) {
+                        Shop();
+                    } else {
+                        this.display("You are not in the shop right now");
+                    }
+                }
+                if (in.equals("drill")) {
+                    if (currentTile.getType() == 3) {
+                    } else {
+                        this.display("This tile is not mineable");
+                    }
 
-            if(player.getPosition().getX()>50 || player.getPosition().getX() < 0 || player.getPosition().getY()< 0 || player.getPosition().getY() > 50)
-                this.alive = false;
+                }
+                player.move();
+
+                if (player.getPosition().getX() > 50 || player.getPosition().getX() < 0 || player.getPosition().getY() < 0 || player.getPosition().getY() > 50)
+                    this.alive = false;
+            }
+            else { running = false;}
         }
+        if (ship.WinCheck()) { this.display("CONGRADULATIONS! YOU HAVE REPAIRED YOUR SHIP AND BEATEN THE GAME!\nYOU WIN!"); }
+        else {this.display("GAMEOVER");}
+
     }
 
     /**
