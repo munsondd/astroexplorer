@@ -1,10 +1,17 @@
 package engine.character;
 
 import engine.entity.MDecorator;
+import engine.entity.MovableEntity;
+import engine.world.Location;
 
 public class FlyingCharacter extends MDecorator {
 
     private double propulsionPower;
+
+    public FlyingCharacter(Location position, int height, int width, MovableEntity cmp, double propulsionPower){
+        super(position, height, width, true, cmp);
+        this.propulsionPower = propulsionPower;
+    }
 
     public FlyingCharacter(int sprite, int height, int width, boolean solid, double direction, double xVelocity, double yVelocity, double propulsionPower) {
         super(sprite, height, width, solid, direction, xVelocity, yVelocity);
