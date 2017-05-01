@@ -34,6 +34,6 @@ public class Constants {
                     "right: propel right\n" +
                     "GAME:\n" +
                     "stats: display player stats" +
-                    "inventory: display player inventory" +
-                    "menu: pause game and open menu";
+                    "inventory: display player inventory\n" +
+                    "menu: pause game and open menu\n";
 }

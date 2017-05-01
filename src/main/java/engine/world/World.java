@@ -28,13 +28,31 @@ public class World {
     	String w = "";
     	for(int i = 0; i < 50; i++ )
     	{
-    		
+    		for(int l = 0; l<50;l++) w+="___";
+			for(int l = 0; l<50;l++) w+="   ";
+    		w+="\n";
+    		String row = "";
     		for(int j = 0; j < 50; j++)
     		{
-    			w += t;
+    			int type = this.tiles.get(i).get(j).getType();
+    			if(type == 1)
+    				row += "| E |";
+    			else if(type == 2)
+    				row += "| A |";
+    			else if (type == 3)
+    				row += "| R |";
+    			else if (type == 4)
+    				row += "| S |";
+    			else if (type == 5)
+    				row += "| W |";
     		}
+    		row += "\n";
+    		w += row;
+			for(int l = 0; l<50;l++) w+="   ";
+			w+= "\n";
     	}
-    	return null;
+
+    	return w;
     }
 	
 	public void init(WorldGenerator wgen) {
