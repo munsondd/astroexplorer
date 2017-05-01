@@ -1,4 +1,5 @@
 import engine.text.Constants;
+import org.apache.commons.lang3.text.WordUtils;
 
 import java.util.Scanner;
 
@@ -16,8 +17,8 @@ public class AstroExplorerText {
      * game exits.
      */
     public void start() {
-        System.out.println(Constants.WELCOME);
-        System.out.println(Constants.MAINMENU);
+        this.display(Constants.WELCOME);
+        // System.out.println(Constants.MAINMENU);
 
         while (this.running) {
             String in = this.prompt();
@@ -69,6 +70,10 @@ public class AstroExplorerText {
 
         }
         */
+    }
+
+    public void display(String message) {
+        System.out.println(WordUtils.wrap(message, 80));
     }
 
     public static void debug(String message) {

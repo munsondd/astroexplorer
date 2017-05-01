@@ -33,6 +33,9 @@ dependencies {
     // Use Xerial as a SQLite JDBC
     compile 'org.xerial:sqlite-jdbc:3.16.1'
 
+    // Use Apache Commons Lang
+    compile 'org.apache.commons:commons-lang3:3.5'
+
     // This dependency is found on compile classpath of this component and consumers.
     compile 'com.google.guava:guava:20.0'
 
@@ -87,6 +90,14 @@ run {
 }
 
 jar {
+    from {
+        configurations.compile.collect {
+            it.isDirectory() ? it : zipTree(it)
+        }
+        configurations.runtime.collect {
+            it.isDirectory() ? it : zipTree(it)
+        }
+    }
     manifest {
         attributes(
             'Class-Path': configurations.compile.collect { it.getName() }.join(' '),
