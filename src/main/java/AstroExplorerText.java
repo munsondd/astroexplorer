@@ -1,4 +1,5 @@
 import engine.character.Character;
+import engine.entity.MovableEntity;
 import engine.text.Constants;
 import engine.world.Location;
 import engine.world.RandomWorldGenerator;
@@ -66,6 +67,11 @@ public class AstroExplorerText {
             if(in.equals("quit")){
                 this.running = false;
             }
+            if(in.equals("drill")){
+                int positionX = (int)player.getPosition().getX();
+                int positionY = (int)player.getPosition().getY();
+                
+            }
             player.move();
 
             if(player.getPosition().getX()>50 || player.getPosition().getX() < 0 || player.getPosition().getY()< 0 || player.getPosition().getY() > 50)
@@ -118,6 +124,49 @@ public class AstroExplorerText {
 
         }
         */
+    }
+
+    public String worldMap(MovableEntity player, World world){
+        //World String
+        String w = "";
+        int positionX = (int)player.getPosition().getX();
+        int positionY = (int)player.getPosition().getY();
+        for(int i = 0; i < 50; i++ )
+        {
+            for(int l = 0; l<50;l++) w+="+----";
+            for(int l = 0; l<50;l++) w+="   ";
+            w+="\n";
+            String row = "";
+            for(int j = 0; j < 50; j++)
+            {
+                int type = world.getTiles().get(j).get(i).getType();
+
+                if(i == positionX && j == positionY){
+                    row += "| @  ";
+                }
+                else {
+                    if (type == 1)
+                        row += "|    ";
+                    else if (type == 2)
+                        row += "| A  ";
+                    else if (type == 3)
+                        row += "| R  ";
+                    else if (type == 4)
+                        row += "| S  ";
+                    else if (type == 5)
+                        row += "| W  ";
+                }
+            }
+            //row += "\n";
+            w += row;
+            for(int l = 0; l<50;l++) w+="   ";
+            w+= "\n";
+        }
+        for(int i = 0; i < 50; i++)
+        {
+            w +="+----";
+        }
+        return w;
     }
 
     public void display(String message) {
