@@ -1,4 +1,5 @@
 import engine.character.Character;
+import engine.entity.MDecorator;
 import engine.entity.MovableEntity;
 import engine.text.Constants;
 import engine.tile.Tile;
@@ -41,7 +42,7 @@ public class AstroExplorerText {
         Location startingPosition = new Location(1.0,2.0,world);
 
         Character chr = new Character(0,1,1,true,0.0, "player");
-        WalkingCharacter player = new WalkingCharacter(startingPosition, 1,1,chr);
+        MDecorator player = new WalkingCharacter(startingPosition, 1,1,chr);
 
         while (this.running) {
             int positionX = (int)player.getPosition().getX();
@@ -49,6 +50,13 @@ public class AstroExplorerText {
 
             Tile currentTile = world.getTiles().get(positionX).get(positionY);
 
+            if(currentTile.getType() == 1){
+                player = new FlyingCharacter(player.getPosition(),player.getHeight(),player.getWidth(),player.getCmp());
+            }
+            else{
+                player = new WalkingCharacter(player.getPosition(),player.getHeight(),player.getWidth(),player.getCmp());
+            }
+            this.display(player.toString());
             this.display("you are on a " +currentTile.toString() + "\n");
 
             String in = this.prompt().toLowerCase();
@@ -87,7 +95,6 @@ public class AstroExplorerText {
 
             if(player.getPosition().getX()>50 || player.getPosition().getX() < 0 || player.getPosition().getY()< 0 || player.getPosition().getY() > 50)
                 this.alive = false;
-            this.display(player.toString());
         }
     }
 
