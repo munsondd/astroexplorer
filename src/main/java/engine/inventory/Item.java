@@ -2,9 +2,11 @@ package engine.inventory;
 
 public class Item implements Cloneable{
 	//private int maxItems = 10;
+    private String name;
     private int type, quantity;
 
-    public Item(int t, int q){
+    public Item(String s, int t, int q){
+        this.name = s;
         this.type = t;
         this.quantity = q;
     }

@@ -7,8 +7,8 @@ public class Inventory extends Item{
 
     private List<Item> items;
 
-    public Inventory(int type, int quantity) {
-        super(type, quantity);
+    public Inventory(String name, int type, int quantity) {
+        super(name, type, quantity);
         this.items = new ArrayList<>();
     }
 

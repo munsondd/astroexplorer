@@ -15,7 +15,7 @@ public class Character extends MovableEntity {
         super(sprite, height, width, solid, direction);
         this.name = name;
          this.playTime = 0;
-         this.backpack = new Inventory(0, 0);
+         this.backpack = new Inventory("", 0, 0);
          this.stats = new Statistics();
 
 
