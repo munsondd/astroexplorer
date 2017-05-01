@@ -1,6 +1,7 @@
 import engine.character.Character;
 import engine.entity.MovableEntity;
 import engine.text.Constants;
+import engine.tile.Tile;
 import engine.world.Location;
 import engine.world.RandomWorldGenerator;
 import engine.world.World;
@@ -43,6 +44,13 @@ public class AstroExplorerText {
         WalkingCharacter player = new WalkingCharacter(startingPosition, 1,1,chr);
 
         while (this.running) {
+            int positionX = (int)player.getPosition().getX();
+            int positionY = (int)player.getPosition().getY();
+
+            Tile currentTile = world.getTiles().get(positionX).get(positionY);
+
+            this.display("you are on a " +currentTile.toString() + "\n");
+
             String in = this.prompt().toLowerCase();
             this.dispatch(in);
             if(in.equals("help")){
@@ -72,8 +80,7 @@ public class AstroExplorerText {
                 this.display(ch.getBackpack().toString());
             }
             if(in.equals("drill")){
-                int positionX = (int)player.getPosition().getX();
-                int positionY = (int)player.getPosition().getY();
+
                 
             }
             player.move();

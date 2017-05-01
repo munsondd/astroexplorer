@@ -52,4 +52,19 @@ public class Tile implements ITile {
 		this.curTile = ctx;
 	}
 
+	public String toString(){
+		String str = "";
+		if (type == 1)
+			str = "space tile";
+		if(type ==2)
+			str = "astroid tile";
+		if(type == 3)
+			str = "resource tile";
+		if(type ==4 )
+			str = "ship tile";
+		if(type == 5)
+			str= "shop tile";
+		return str;
+	}
+
 }
