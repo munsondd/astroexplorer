@@ -44,6 +44,18 @@ public class AstroExplorerText {
                 Character ch = (Character) player.getCmp();
                 this.display(ch.getStatistics().toString());
             }
+            if(in.equals("up")){
+                player.setVelocityY(player.getVelocityY()+1);
+            }
+            if(in.equals("down")){
+                player.setVelocityY(player.getVelocityY()-1);
+            }
+            if (in.equals("left")){
+                player.setVelocityX(player.getVelocityX()-1);
+            };
+            if(in.equals("right")){
+                player.setVelocityX(player.getVelocityX()+1);
+            }
         }
     }
 
