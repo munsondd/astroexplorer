@@ -35,8 +35,11 @@ public class AstroExplorerText {
         WalkingCharacter player = new WalkingCharacter(startingPosition, 1,1,chr);
 
         while (this.running) {
-            String in = this.prompt();
+            String in = this.prompt().toLowerCase();
             this.dispatch(in);
+            if(in.equals("help")){
+                this.display(Constants.HELPMESSAGE);
+            }
         }
     }
 

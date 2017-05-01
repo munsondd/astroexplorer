@@ -18,4 +18,22 @@ public class Constants {
             "(2) Oxygen \n(3) Fuel\n (4) Inventory\n (5) Back";
 
     public static final String NAMEPROPMT = "please enter your name:";
+
+    public static final String HELPMESSAGE =
+            "here is a list of possible commands\n" +
+                    "WHILE MINING\n" +
+                    "up: move up\n" +
+                    "down: move down\n" +
+                    "left: move left\n" +
+                    "right: move right\n" +
+                    "drill: mine a resource tile\n" +
+                    "WHILE FLYING:\n" +
+                    "up: propel up\n" +
+                    "down: propel down\n" +
+                    "left: propel left\n" +
+                    "right: propel right\n" +
+                    "GAME:\n" +
+                    "stats: display player stats" +
+                    "inventory: display player inventory" +
+                    "menu: pause game and open menu";
 }
