@@ -8,6 +8,10 @@ import java.time.Year;
 
 public class FlyingCharacter extends MDecorator {
 
+    private final int OXDEPLETION = 2;
+    private final int FUELDEPLETION = 2;
+    private final int HEALTHDEPLETION = 2;
+
     private double propulsionPower = 0;
 
     public FlyingCharacter(Location position, int height, int width, MovableEntity cmp) {
@@ -34,6 +38,14 @@ public class FlyingCharacter extends MDecorator {
 
         this.getPosition().setX(newXposition);
         this.getPosition().setY((newYposition));
+
+        Character ch = (Character)this.getCmp();
+        ch.getStatistics().setFuel(ch.getStatistics().getFuel() - FUELDEPLETION);
+        if(ch.getStatistics().getOxygen()>0)
+            ch.getStatistics().setOxygen(ch.getStatistics().getOxygen() - OXDEPLETION);
+        else
+            ch.getStatistics().setHealth(ch.getStatistics().getHealth() - HEALTHDEPLETION);
+
 
     }
 

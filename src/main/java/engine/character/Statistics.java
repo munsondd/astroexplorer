@@ -2,9 +2,9 @@ package engine.character;
 
 public class Statistics {
 
-    private double fuel = 0;
-    private double health = 0;
-    private double oxygen = 0;
+    private double fuel = 100;
+    private double health = 100;
+    private double oxygen = 100;
     private int inventorySize =0;
 
     public double getFuel() {

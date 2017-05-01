@@ -6,6 +6,10 @@ import engine.world.Location;
 
 public class WalkingCharacter extends MDecorator {
 
+    private final int OXDEPLETION = 2;
+    private final int FUELDEPLETION = 2;
+    private final int HEALTHDEPLETION = 2;
+
     public WalkingCharacter(Location position, int height, int width, MovableEntity cmp){
         super(position, height, width, true, cmp);
     }
@@ -25,6 +29,13 @@ public class WalkingCharacter extends MDecorator {
 
         this.setVelocityX(0.0);
         this.setVelocityY(0.0);
+
+        Character ch = (Character)this.getCmp();
+        ch.getStatistics().setFuel(ch.getStatistics().getFuel() - FUELDEPLETION);
+        if(ch.getStatistics().getOxygen()>0)
+            ch.getStatistics().setOxygen(ch.getStatistics().getOxygen()-OXDEPLETION);
+        else
+            ch.getStatistics().setHealth(ch.getStatistics().getHealth() - HEALTHDEPLETION);
     }
 
     public Location drill() {
