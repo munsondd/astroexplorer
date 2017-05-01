@@ -6,7 +6,6 @@ import java.util.List;
 public class Inventory {
 
     private List<Item> items;
-    private List<List<Item>> upgrades;
 
     public Inventory() {
         this.items = new ArrayList<>();
