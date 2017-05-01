@@ -19,6 +19,23 @@ public class World {
     {
     	this.tiles = tiles;
     }
+    
+    public String display()
+    {
+    	//Tile String
+    	String t = "+-----+\n|       |\n|       |\n|       |\n|       |\n+-----+";
+    	//World String
+    	String w = "";
+    	for(int i = 0; i < 50; i++ )
+    	{
+    		
+    		for(int j = 0; j < 50; j++)
+    		{
+    			w += t;
+    		}
+    	}
+    	return null;
+    }
 	
 	public void init(WorldGenerator wgen) {
 		this.time = 0;
