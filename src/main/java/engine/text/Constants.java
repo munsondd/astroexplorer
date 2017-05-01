@@ -9,4 +9,5 @@ public class Constants {
             "Type the number of the action you wish to do\n(1) Start Game\n" +
             "(2) Load Game\n(3) Exit\n";
 
+    public static final String NAMEPROPMT = "please enter your name:";
 }

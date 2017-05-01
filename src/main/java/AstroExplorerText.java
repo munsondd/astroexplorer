@@ -1,6 +1,9 @@
+import engine.character.Character;
 import engine.text.Constants;
+import engine.world.Location;
+import engine.world.World;
 import org.apache.commons.lang3.text.WordUtils;
-
+import engine.character.*;
 import java.util.Scanner;
 
 public class AstroExplorerText {
@@ -19,6 +22,17 @@ public class AstroExplorerText {
     public void start() {
         this.display(Constants.WELCOME);
         // System.out.println(Constants.MAINMENU);
+        //load character into world
+        this.display(Constants.NAMEPROPMT);
+        String name = this.prompt();
+        this.dispatch(name);
+
+        //need to load world.
+        World world = new World();
+        Location startingPosition = new Location(1.0,2.0,world);
+
+        Character chr = new Character(0,1,1,true,0.0, "player");
+        WalkingCharacter player = new WalkingCharacter(startingPosition, 1,1,chr);
 
         while (this.running) {
             String in = this.prompt();
