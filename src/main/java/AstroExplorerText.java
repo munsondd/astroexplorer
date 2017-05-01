@@ -4,8 +4,12 @@ import java.util.Scanner;
 
 public class AstroExplorerText {
 
+    // the game will block on this unless System.exit(); is called
     private boolean running = true;
     private Scanner in = new Scanner(System.in);
+
+    // toggle this to increase verbosity
+    private static final boolean debug = true;
 
     /**
      * Starts the game loop. This will block until the
@@ -41,7 +45,7 @@ public class AstroExplorerText {
      * @param input The command to be run
      */
     public void dispatch(String input) {
-        System.out.println("DISPATCH: " + input);
+        debug("dispatch: " + input);
     }
 
     public static void main(String args[]) {
@@ -64,6 +68,11 @@ public class AstroExplorerText {
 
         }
         */
+    }
+
+    public static void debug(String message) {
+        if (!AstroExplorerText.debug) return;
+        System.out.printf("[DEBUG] %s\n", message);
     }
 
 }

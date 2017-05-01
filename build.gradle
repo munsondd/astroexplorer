@@ -82,8 +82,9 @@ dependencies {
     runtime "org.lwjgl:lwjgl-xxhash:${lwjglVersion}:${lwjglNatives}"
 }
 
-run{
+run {
     standardInput = System.in
 }
+
 // Define the main class for the application
 mainClassName = 'AstroExplorerText'
