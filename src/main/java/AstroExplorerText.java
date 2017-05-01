@@ -17,6 +17,7 @@ public class AstroExplorerText {
      */
     public void start() {
         System.out.println(Constants.WELCOME);
+        System.out.println(Constants.MAINMENU);
 
         while (this.running) {
             String in = this.prompt();
