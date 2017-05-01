@@ -31,4 +31,10 @@ public class WalkingCharacter extends MDecorator {
         return this.getPosition();
     }
 
+    public String toString() {
+        String str = "you are currently in terrain mode!\n" +
+                "Position: X = " + this.getPosition().getX() + " Y = " + this.getPosition().getY() + "\n";
+        return str;
+    }
+
 }

@@ -56,6 +56,11 @@ public class AstroExplorerText {
             if(in.equals("right")){
                 player.setVelocityX(player.getVelocityX()+1);
             }
+            if(in.equals("quit")){
+                this.running = false;
+            }
+            player.move();
+            this.display(player.toString());
         }
     }
 

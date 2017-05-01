@@ -4,6 +4,8 @@ import engine.entity.MDecorator;
 import engine.entity.MovableEntity;
 import engine.world.Location;
 
+import java.time.Year;
+
 public class FlyingCharacter extends MDecorator {
 
     private double propulsionPower;
@@ -35,5 +37,11 @@ public class FlyingCharacter extends MDecorator {
         double newVelocityX = this.getVelocityX() + (this.propulsionPower * Math.cos(this.getDirection()));
         double newVelocityY = this.getVelocityY() + (this.propulsionPower * Math.sin(this.getDirection()));
         this.setVelocity(newVelocityX, newVelocityY);
+    }
+    public String toString() {
+        String str = "you are currently flying through space!\n" +
+                "trajectory: X = " + this.getVelocityX() + "Y = " + this.getVelocityY() + "\n" +
+        "Position: X = " + this.getPosition().getX() + " Y = " + this.getPosition().getY() + "\n";
+        return str;
     }
 }
