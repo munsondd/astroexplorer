@@ -4,7 +4,7 @@ import engine.tile.TileFactory;
 
 public abstract class WorldGenerator {
 	
-	private TileFactory factory;
+	private TileFactory factory = new TileFactory();
 	
 	public TileFactory getFactory()
 	{

@@ -1,6 +1,7 @@
 import engine.character.Character;
 import engine.text.Constants;
 import engine.world.Location;
+import engine.world.RandomWorldGenerator;
 import engine.world.World;
 import org.apache.commons.lang3.text.WordUtils;
 import engine.character.*;
@@ -29,6 +30,11 @@ public class AstroExplorerText {
 
         //need to load world.
         World world = new World();
+        RandomWorldGenerator r = new RandomWorldGenerator(50);
+        
+        world.init(r);
+        world.display();
+        
         Location startingPosition = new Location(1.0,2.0,world);
 
         Character chr = new Character(0,1,1,true,0.0, "player");
