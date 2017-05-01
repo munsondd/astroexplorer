@@ -15,7 +15,7 @@ public class Constants {
 
     public static final String ShopUpgrade = "===================Upgrade===================\n +" +
             "What would you like to Upgrade?\n(1) Health\n" +
-            "(2) Oxygen \n(3) Fuel\n (4) Inventory\n (5) Back";
+            "(2) Oxygen \n(3) Fuel\n (4) Back";
 
     public static final String NAMEPROPMT = "please enter your name:";
 

@@ -23,11 +23,4 @@ public class Item extends Inventory implements Cloneable{
         this.type = t;
     }
 
-    public int GetSprite(){
-        return this.sprite;
-    }
-    public void SetSprite(int s) {
-        this.sprite = s;
-    }
-
     }

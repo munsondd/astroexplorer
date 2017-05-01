@@ -6,6 +6,7 @@ import java.util.List;
 public class Inventory {
 
     private List<Item> items;
+    private List<List<Item>> upgrades;
 
     public Inventory() {
         this.items = new ArrayList<>();
@@ -43,6 +44,17 @@ public class Inventory {
         int l = this.items.size();
         items.clear();
         return l;
+    }
+
+    public Upgrades() {
+        this.upgrades = new ArrayList[4][3]; //column 1 is health, 2 is fuel, 3 is oxygen
+        for(int i = 0; i < 3; i++) {
+            double base = 100;
+            for(int j = 0; j < 4; j++) {
+                upgrades[j][i] = base;
+                base = base + 100;
+            }
+        }
     }
 
 }
