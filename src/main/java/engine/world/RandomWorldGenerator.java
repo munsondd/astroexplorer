@@ -52,6 +52,10 @@ public class RandomWorldGenerator extends WorldGenerator {
 				tiles.get(i).set(j, super.getFactory().getTile(prob[randomIndex]));
 			}
 		}
+
+		// this method needs a proper return statement
+		return null;
+
 	}
 	
 	public int getSeed()
