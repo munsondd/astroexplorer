@@ -103,6 +103,9 @@ public class AstroExplorerText {
             if(in.equals("help")){
                 this.display(Constants.HELPMESSAGE);
             }
+            if(in.equals("hints")){
+                this.display(Constants.HINTSMESSAGE);
+            }
             if(in.equals("stats")){
                 Character ch = (Character) player.getCmp();
                 this.display(ch.getStatistics().toString());
@@ -128,7 +131,7 @@ public class AstroExplorerText {
             }
             if(in.equals("shop")){
                 if(currentTile.getType() == 5){
-
+                    Shop();
                 }
                 else { this.display("You are not in the shop right now"); }
 
