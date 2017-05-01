@@ -14,6 +14,11 @@ public class World {
         this.tiles = new ArrayList<>();
         this.time = 0L;
     }
+    
+    public World(List<List<Tile>> tiles)
+    {
+    	this.tiles = tiles;
+    }
 	
 	public void init(WorldGenerator wgen) {
 		this.time = 0;
