@@ -12,6 +12,7 @@ public class RandomWorldGenerator extends WorldGenerator {
 	
 	public World generate()
 	{
+		
 		int prob[] = new int[100];
 		
 		for(int p = 0; p < 100; p++)
@@ -52,9 +53,9 @@ public class RandomWorldGenerator extends WorldGenerator {
 				tiles.get(i).set(j, super.getFactory().getTile(prob[randomIndex]));
 			}
 		}
-
-		// this method needs a proper return statement
-		return null;
+		
+		World w = new World(tiles);
+		return w;
 
 	}
 	
