@@ -9,5 +9,13 @@ public class Constants {
             "Type the number of the action you wish to do\n(1) Start Game\n" +
             "(2) Load Game\n(3) Exit\n";
 
+    public static final String ShopMain = "===================SHOP===================\n +" +
+            "Welcome to the Shop. What would you like to do?\n(1) Restore Health\n" +
+            "(2) Upgrade \n(3) Build Ship Part\n (4) Exit";
+
+    public static final String ShopUpgrade = "===================Upgrade===================\n +" +
+            "What would you like to Upgrade?\n(1) Health\n" +
+            "(2) Oxygen \n(3) Fuel\n (4) Inventory\n (5) Back";
+
     public static final String NAMEPROPMT = "please enter your name:";
 }
