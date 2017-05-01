@@ -8,7 +8,11 @@ import java.time.Year;
 
 public class FlyingCharacter extends MDecorator {
 
-    private double propulsionPower;
+    private double propulsionPower = 0;
+
+    public FlyingCharacter(Location position, int height, int width, MovableEntity cmp) {
+        super(position,height,width, true,cmp);
+    }
 
     public FlyingCharacter(Location position, int height, int width, MovableEntity cmp, double propulsionPower){
         super(position, height, width, true, cmp);
