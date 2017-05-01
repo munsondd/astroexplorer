@@ -20,6 +20,20 @@ public class AstroExplorerText {
     // toggle this to increase verbosity
     private static final boolean debug = true;
 
+    public void MainMenu() {
+        boolean inMenu = true;
+        while(inMenu) {
+            this.display(Constants.MAINMENU);
+            String in = this.prompt().toLowerCase();
+            dispatch(in);
+            if(in.equals("start")){
+                inMenu = false;
+            }
+            if(in.equals("load")){
+            }
+        }
+    }
+
     /**
      * Starts the game loop. This will block until the
      * game exits.
@@ -124,6 +138,7 @@ public class AstroExplorerText {
 
     public static void main(String args[]) {
         AstroExplorerText game = new AstroExplorerText();
+        game.MainMenu();
         game.start();
 
         /*
