@@ -7,6 +7,6 @@ public class Constants {
             "have a limited supply of fuel and oxygen. You will need to return to the ship to resupply.";
     public static final String MAINMENU = "-------------------------------\n +" +
             "Type the number of the action you wish to do\n(1) Start Game\n" +
-            "(2) Load Game\n(3) Exit\n");
+            "(2) Load Game\n(3) Exit\n";
 
 }
