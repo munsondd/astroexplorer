@@ -67,6 +67,10 @@ public class AstroExplorerText {
             if(in.equals("quit")){
                 this.running = false;
             }
+            if(in.equals("inventory")){
+                Character ch = (Character) player.getCmp();
+                this.display(ch.getBackpack().toString());
+            }
             if(in.equals("drill")){
                 int positionX = (int)player.getPosition().getX();
                 int positionY = (int)player.getPosition().getY();

@@ -20,6 +20,17 @@ public class Inventory extends Item{
         return this.items;
     }
 
+    public String toString(){
+        if(!items.isEmpty()) {
+            return "BACKPACK\n" +
+                    "----------------\n" +
+                    getItems();
+        }
+        else {
+            return "Nothing is in your BACKPACK";
+        }
+    }
+
     /**
      * Add an item to this inventory.
      * @param item the item to be added
