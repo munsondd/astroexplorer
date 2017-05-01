@@ -10,8 +10,8 @@ public class Constants {
             "(2) Load\n";
 
     public static final String ShopMain = "===================SHOP===================\n +" +
-            "Welcome to the Shop. What would you like to do?\n(1) Restore Health\n" +
-            "(2) Upgrade \n(3) Build Ship Part\n (4) Exit";
+            "Welcome to the Shop. What would you like to do?\n(1) Heal\n" +
+            "(2) Upgrade \n(3) Repairs\n (4) Exit";
 
     public static final String ShopUpgrade = "===================Upgrade===================\n +" +
             "What would you like to Upgrade?\n(1) Health\n" +

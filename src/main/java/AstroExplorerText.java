@@ -34,6 +34,31 @@ public class AstroExplorerText {
         }
     }
 
+    public void Shop() {
+        boolean inShop = true;
+        while(inShop) {
+            this.display(Constants.ShopMain);
+            String in = this.prompt().toLowerCase();
+            dispatch(in);
+            if(in.equals("heal")){
+
+            }
+            if(in.equals("upgrade")){
+                boolean upgrades = true;
+                while(upgrades){
+                    this.display(Constants.ShopUpgrade);
+                    upgrades = false;
+                }
+            }
+            if(in.equals("repair")){
+                inShop = false;
+            }
+            if(in.equals("exit")){
+                inShop = false;
+            }
+        }
+    }
+
     /**
      * Starts the game loop. This will block until the
      * game exits.
@@ -101,8 +126,17 @@ public class AstroExplorerText {
                 Character ch = (Character) player.getCmp();
                 this.display(ch.getBackpack().toString());
             }
-            if(in.equals("drill")){
+            if(in.equals("shop")){
+                if(currentTile.getType() == 5){
 
+                }
+                else { this.display("You are not in the shop right now"); }
+
+            }
+            if(in.equals("drill")){
+                if(currentTile.getType() == 3){
+                }
+                else { this.display("This tile is not mineable"); }
                 
             }
             player.move();
