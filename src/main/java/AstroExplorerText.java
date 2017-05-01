@@ -1,6 +1,8 @@
 import engine.character.Character;
 import engine.entity.MDecorator;
 import engine.entity.MovableEntity;
+import engine.inventory.Inventory;
+import engine.inventory.Item;
 import engine.inventory.Shop;
 import engine.text.Constants;
 import engine.tile.Tile;
@@ -33,6 +35,15 @@ public class AstroExplorerText {
             if(in.equals("load")){
             }
         }
+    }
+
+    public void Drill(Character ch, Tile currentTile) {
+        String resource = Integer.toString(currentTile.getType());
+        Item newItem = new Item(resource, 3, 1);
+        if(!ch.getBackpack().getItems().contains(newItem)){ ch.getBackpack().getItems().add(newItem);}
+        else {ch.getBackpack().getItems().add(newItem);}
+        //display what resource was added to inventory
+        currentTile.setType(2);
     }
 
     public void Shop() {
@@ -127,7 +138,6 @@ public class AstroExplorerText {
                 if (in.equals("left")) {
                     player.setVelocityX(player.getVelocityX() - 1);
                 }
-                ;
                 if (in.equals("right")) {
                     player.setVelocityX(player.getVelocityX() + 1);
                 }
@@ -147,6 +157,8 @@ public class AstroExplorerText {
                 }
                 if (in.equals("drill")) {
                     if (currentTile.getType() == 3) {
+                        Character ch = (Character) player.getCmp();
+                        Drill(ch,currentTile);
                     } else {
                         this.display("This tile is not mineable");
                     }
