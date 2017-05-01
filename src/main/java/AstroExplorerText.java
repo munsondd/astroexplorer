@@ -11,6 +11,7 @@ public class AstroExplorerText {
 
     // the game will block on this unless System.exit(); is called
     private boolean running = true;
+    private boolean alive = true;
     private Scanner in = new Scanner(System.in);
 
     // toggle this to increase verbosity
@@ -33,7 +34,7 @@ public class AstroExplorerText {
         RandomWorldGenerator r = new RandomWorldGenerator(50);
         
         world.init(r);
-        world.display();
+        this.display(world.display());
         
         Location startingPosition = new Location(1.0,2.0,world);
 
@@ -66,6 +67,9 @@ public class AstroExplorerText {
                 this.running = false;
             }
             player.move();
+
+            if(player.getPosition().getX()>50 || player.getPosition().getX() < 0 || player.getPosition().getY()< 0 || player.getPosition().getY() > 50)
+                this.alive = false;
             this.display(player.toString());
         }
     }
