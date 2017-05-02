@@ -9,7 +9,7 @@ public class DatabaseAdapterTest {
     @Test
     public void testDatabaseSetGet() {
         DatabaseAdapter adpt = new DatabaseAdapter("test.sqlite");
-        // adpt.set(KeySpecifier.SETTINGS, "{}");
+        adpt.set(KeySpecifier.SETTINGS, "{}");
         assertEquals("{}", adpt.get(KeySpecifier.SETTINGS));
     }
 

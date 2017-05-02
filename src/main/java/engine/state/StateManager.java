@@ -42,12 +42,26 @@ public abstract class StateManager {
      */
     public abstract String serialize();
 
+    /**
+     * Load and instantiate the given class by deserializing its
+     * associated row in the database adapter.
+     *
+     * @param cls the class to be loaded
+     * @param <T> the instance of state manager
+     * @return the loaded class
+     */
     public <T extends StateManager> T load(Class<T> cls) {
         String json = this.adapter.get(this.getKeySpecifier());
         Object o = Game.gson.fromJson(json, cls);
         return cls.cast(o);
     }
 
+    /**
+     * Flush an in-memory state manager into its associated
+     * row in the database medium.
+     *
+     * @return whether or not the operation succeeded
+     */
     public boolean save() {
         KeySpecifier spec = this.getKeySpecifier();
         String json = Game.gson.toJson(this);
