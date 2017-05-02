@@ -99,7 +99,6 @@ public class AstroExplorerText {
         RandomWorldGenerator r = new RandomWorldGenerator(50);
         
         world.init(r);
-        this.display(world.display());
         
         Location startingPosition = new Location(1.0,2.0,world);
 
@@ -111,6 +110,7 @@ public class AstroExplorerText {
         while (this.running) {
             this.display("----------------------------------------------------------");
             if (!ship.WinCheck()) {
+            	System.out.println(worldMap(player,world));
                 int positionX = (int) player.getPosition().getX();
                 int positionY = (int) player.getPosition().getY();
 
@@ -240,7 +240,7 @@ public class AstroExplorerText {
         int positionY = (int)player.getPosition().getY();
         for(int i = 0; i < 50; i++ )
         {
-            for(int l = 0; l<50;l++) w+="+----";
+            for(int l = 0; l<50;l++) w+="+---";
             for(int l = 0; l<50;l++) w+="   ";
             w+="\n";
             String row = "";
@@ -249,19 +249,19 @@ public class AstroExplorerText {
                 int type = world.getTiles().get(j).get(i).getType();
 
                 if(i == positionX && j == positionY){
-                    row += "| @  ";
+                    row += "| @ ";
                 }
                 else {
                     if (type == 1)
-                        row += "|    ";
+                        row += "|   ";
                     else if (type == 2)
-                        row += "| A  ";
+                        row += "| A ";
                     else if (type == 3)
-                        row += "| R  ";
+                        row += "| R ";
                     else if (type == 4)
-                        row += "| S  ";
+                        row += "| S ";
                     else if (type == 5)
-                        row += "| W  ";
+                        row += "| W ";
                 }
             }
             //row += "\n";
