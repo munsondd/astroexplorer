@@ -192,7 +192,13 @@ public class AstroExplorerText {
      * @param input The command to be run
      */
     public void dispatch(String input) {
-        debug("dispatch: " + input);
+        switch (input) {
+            case "quit":
+            case "exit":
+                System.exit(0);
+            default:
+                this.display("Unknown command: please try again.");
+        }
     }
 
     public static void main(String args[]) {
