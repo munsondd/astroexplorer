@@ -82,12 +82,13 @@ public class AstroExplorerText {
         while (this.running) {
             this.display("----------------------------------------------------------");
             if (!ship.WinCheck()) {
+                //draw the map
             	System.out.println(world.display(player));
+            	// get player and position
                 int positionX = (int) player.getPosition().getX();
                 int positionY = (int) player.getPosition().getY();
-
                 Tile currentTile = world.getTiles().get(positionX).get(positionY);
-
+                // change player state based on position
                 if (currentTile.getType() == 1) {
                     player = new FlyingCharacter(player.getPosition(), player.getHeight(), player.getWidth(), player.getCmp());
                 }
@@ -98,11 +99,14 @@ public class AstroExplorerText {
                 else {
                     player = new WalkingCharacter(player.getPosition(), player.getHeight(), player.getWidth(), player.getCmp());
                 }
-                this.display(player.toString());
+                //display some player info
+                System.out.println(player.toString());
                 this.display("you are on a " + currentTile.toString() + "\n");
 
+                //get user input
                 String in = this.prompt().toLowerCase();
                 this.dispatch(in);
+                // handle user input
                 if (in.equals("help")) {
                     this.display(Constants.HELP_MESSAGE);
                 }
@@ -152,8 +156,9 @@ public class AstroExplorerText {
                     }
 
                 }
+                //move the player to next tile
                 player.move();
-
+                //check to see if player has left the map
                 if (player.getPosition().getX() > world.getX() || player.getPosition().getX() < 0 || player.getPosition().getY() < 0 || player.getPosition().getY() > world.getY()) {
                     this.alive = false;
                     this.display("You floated off into the abyss of space and died");
