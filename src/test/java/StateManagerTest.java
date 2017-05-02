@@ -1,6 +1,9 @@
 import engine.database.DatabaseAdapter;
 import engine.state.Settings;
+import org.junit.AfterClass;
 import org.junit.Test;
+
+import java.io.File;
 
 import static org.junit.Assert.assertEquals;
 
@@ -17,6 +20,13 @@ public class StateManagerTest {
         assertEquals(800, settings2.getResolutionY());
         assertEquals(0, settings2.getVolume());
         assertEquals(true, settings2.getVSync());
+    }
+
+
+    @AfterClass
+    public static void clean() {
+        File sql = new File("state_manager_test.sqlite");
+        sql.delete();
     }
 
 }

@@ -20,7 +20,7 @@ public class WalkingCharacter extends MDecorator {
 
     public void move() {
         Location loc = this.getPosition();
-        
+
         double newPositionX = loc.getX() + this.getVelocityX();
         double newPositionY = loc.getY() + this.getVelocityY();
 
