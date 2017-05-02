@@ -11,33 +11,45 @@ public class Settings extends StateManager {
 		super(filename);
 	}
 
-	public void setInt(String key, int i) {
-		
-	}
-	
-	public int getInt(String key) {
-		return 0;
-	}
-	
-	public void setBool(String key, boolean b) {
-		
-	}
-	
-	public boolean getBool(String key) {
-		return false;
-	}
-	
-	public void setString(String key, String s) {
-		
-	}
-	
-	public String getString(String key) {
-		return null;
-	}
+    public void setResolution(int x, int y) {
+        this.resolutionX = x;
+        this.resolutionY = y;
+    }
+
+	public void setResolutionX(int x) {
+        this.resolutionX = x;
+    }
+
+    public int getResolutionX() {
+        return this.resolutionX;
+    }
+
+    public void setResolutionY(int y) {
+        this.resolutionY = y;
+    }
+
+    public int getResolutionY() {
+        return this.resolutionY;
+    }
+
+    public void setVolume(int volume) {
+        this.volume = volume;
+    }
+
+    public int getVolume() {
+        return this.volume;
+    }
+
+    public void setVSync(boolean vsync) {
+        this.vsync = vsync;
+    }
+
+    public boolean getVSync() {
+        return this.vsync;
+    }
 	
 	public String serialize() {
 		return null;
 	}
 
 }
-
