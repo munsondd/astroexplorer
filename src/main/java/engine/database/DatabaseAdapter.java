@@ -30,13 +30,25 @@ public class DatabaseAdapter {
 
     }
 
+    public boolean set(int key, String value) {
+        try {
+            Connection connection = this.getConnection();
+            Statement statement = connection.createStatement();
+            statement.executeUpdate("CREATE TABLE IF NOT EXISTS jsonmap (id integer, json string)");
+            statement.executeUpdate("INSERT INTO jsonmap values(" + key + ", '" + value + "')");
+            return true;
+        } catch(SQLException e) {
+            return false;
+        }
+    }
+
     private Connection getConnection() {
         Connection connection = null;
 
         try {
             connection = DriverManager.getConnection(this.jdbc);
         } catch(SQLException e) {
-
+            return null;
         }
 
         return connection;
