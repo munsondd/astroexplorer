@@ -1,15 +1,34 @@
 package engine.tile;
 
+import java.util.Random;
+
 public class Tile implements ITile {
 
-	private static final String e = null;
+	private static final String[] Rlist = {"Iron", "Copper", "Gold"};
 	private int type;
+	private String resource;
+	private int Rammount;
 	private int sprite;
 	private boolean solid;
 	private TileContext curTile;
 
+
+	public int RRAmmout() {
+		Random rand = new Random();
+		int  n = rand.nextInt(2) + 1;
+		return n;
+	}
+
 	public Tile(int type) {
 		this.type = type;
+		if(type == 3) {
+			this.resource = Rlist[RRAmmout()];
+			this.Rammount = RRAmmout();
+		}
+		else {
+			this.resource = "";
+			this.Rammount = 0;
+		}
 	}
 
 	public Tile(int type, int sprite, boolean solid) {
@@ -22,14 +41,22 @@ public class Tile implements ITile {
 		return this.solid;
 	}
 	
-	public int getType()
-	{
-		return this.type;
-	}
-	
+	public int getType() {return this.type;}
 	public void setType(int type)
 	{
 		this.type = type;
+	}
+
+	public String getResource() {return this.resource;}
+	public void setResource()
+	{
+		this.resource = "";
+	}
+
+	public int getRRammount() {return this.Rammount;}
+	public void setRRammount()
+	{
+		this.Rammount = 0;
 	}
 	
 	public int getSprite()

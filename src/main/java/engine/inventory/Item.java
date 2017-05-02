@@ -16,6 +16,7 @@ public class Item implements Cloneable{
     public int GetQuantity(){
         return this.quantity;
     }
+    public void AddQuantity(int q) {this.quantity = q; }
     public void SetQuantity(int q) {
         this.quantity = q;
     }
@@ -25,6 +26,13 @@ public class Item implements Cloneable{
     }
     public void SetType(int t) {
         this.type = t;
+    }
+
+    public String GetName(){
+        return this.name;
+    }
+    public void SetType(String s) {
+        this.name = s;
     }
 
     }

@@ -38,11 +38,21 @@ public class AstroExplorerText {
     }
 
     public void Drill(Character ch, Tile currentTile) {
-        String resource = Integer.toString(currentTile.getType());
-        Item newItem = new Item(resource, 3, 1);
-        if(!ch.getBackpack().getItems().contains(newItem)){ ch.getBackpack().getItems().add(newItem);}
+
+        String resource = currentTile.getResource();
+        int ammount = currentTile.getRRammount();
+
+        Item newItem = new Item(resource,3, ammount);
+        if(ch.getBackpack().GetName() == resource){
+            ch.getBackpack().AddQuantity(ammount);
+        }
         else {ch.getBackpack().getItems().add(newItem);}
-        //display what resource was added to inventory
+
+        this.display("You just found " + Integer.toString(ammount) + " Units of " + resource);
+        this.display("Total Ammount of  " + resource + ": " + Integer.toString(ch.getBackpack().GetQuantity(newItem)));
+
+        currentTile.setResource();
+        currentTile.setRRammount();
         currentTile.setType(2);
     }
 
@@ -146,7 +156,7 @@ public class AstroExplorerText {
                 }
                 if (in.equals("inventory")) {
                     Character ch = (Character) player.getCmp();
-                    this.display(ch.getBackpack().toString());
+                    ch.getBackpack().PrintBack();
                 }
                 if (in.equals("shop")) {
                     if (currentTile.getType() == 5) {

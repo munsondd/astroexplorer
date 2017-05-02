@@ -6,6 +6,8 @@ import java.util.List;
 public class Inventory extends Item{
 
     private List<Item> items;
+    private String name;
+    private int type, quantity;
 
     public Inventory(String name, int type, int quantity) {
         super(name, type, quantity);
@@ -16,18 +18,24 @@ public class Inventory extends Item{
      * Get all the items in this inventory.
      * @return
      */
+
+    public int GetQuantity(Item item) {
+        return item.GetQuantity();
+    }
+
     public List<Item> getItems() {
         return this.items;
     }
 
-    public String toString(){
+    public void PrintBack(){
+        System.out.println("BACKPACK\n----------------\n");
         if(!items.isEmpty()) {
-            return "BACKPACK\n" +
-                    "----------------\n" +
-                    getItems();
+            for (Item item : items) {
+                System.out.println(item.GetName() + "      " + Integer.toString(item.GetQuantity()));
+            }
         }
         else {
-            return "Nothing is in your BACKPACK";
+            System.out.println("Nothing is in your BACKPACK");
         }
     }
 
