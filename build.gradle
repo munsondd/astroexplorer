@@ -33,6 +33,9 @@ dependencies {
     // Use Xerial as a SQLite JDBC
     compile 'org.xerial:sqlite-jdbc:3.16.1'
 
+    // Use Google GSON
+    compile 'com.google.code.gson:gson:2.8'
+
     // Use Apache Commons Lang
     compile 'org.apache.commons:commons-lang3:3.5'
 
