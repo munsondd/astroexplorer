@@ -7,8 +7,8 @@ public class Constants {
             "have a limited supply of fuel and oxygen. You will need to return to the ship to resupply.\n If you need any help " +
             "or tips just enter HELP or HINTS";
 
-    public static final String MAIN_MENU = "WELCOME TO ASTROEXPLORER\n-------------------------------\n +" +
-            "Type the action you wish to do\n(1) Start\n" +
+    public static final String MAIN_MENU = "WELCOME TO ASTROEXPLORER\n-------------------------------\n" +
+            "Enter the action you wish to perform:\n(1) Start\n" +
             "(2) Load\n(3) Quit";
 
     public static final String SHOP_MAIN = "===================SHOP===================\n +" +

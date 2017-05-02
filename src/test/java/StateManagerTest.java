@@ -30,7 +30,6 @@ public class StateManagerTest {
         assertEquals(vsync, settings2.getVSync());
     }
 
-
     @AfterClass
     public static void clean() {
         File sql = new File(DB_PATH);

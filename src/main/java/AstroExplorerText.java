@@ -19,23 +19,22 @@ public class AstroExplorerText {
     private Scanner in = new Scanner(System.in);
 
     // toggle this to increase verbosity
-    private static final boolean debug = true;
+    private static final boolean debug = false;
 
-    public void MainMenu() {
-        boolean inMenu = true;
-        while(inMenu) {
+    public void showMainMenu() {
+        while (true) {
             this.display(Constants.MAIN_MENU);
-            String in = this.prompt().toLowerCase();
-            dispatch(in);
-            if(in.equals("start")){
-                inMenu = false;
+            String in = this.prompt();
+            this.dispatch(in);
+            if (in.equals("start")) {
+                break;
             }
             if(in.equals("load")){
             }
         }
     }
 
-    public void Drill(Character ch, Tile currentTile) {
+    public void drill(Character ch, Tile currentTile) {
 
         String resource = currentTile.getResource();
         int ammount = currentTile.getRRammount();
@@ -150,7 +149,7 @@ public class AstroExplorerText {
                 if (in.equals("drill")) {
                     if (currentTile.getType() == 3) {
                         Character ch = (Character) player.getCmp();
-                        Drill(ch,currentTile);
+                        drill(ch,currentTile);
                     } else {
                         this.display("This tile is not mineable");
                     }
@@ -186,7 +185,7 @@ public class AstroExplorerText {
      * @return String the player's response
      */
     public String prompt() {
-        return this.in.next();
+        return this.in.next().toLowerCase();
     }
 
     /**
@@ -199,28 +198,9 @@ public class AstroExplorerText {
 
     public static void main(String args[]) {
         AstroExplorerText game = new AstroExplorerText();
-        game.MainMenu();
+        game.showMainMenu();
         game.start();
-
-        /*
-        boolean inGame = true;
-        boolean alive = true;
-        Scanner reader = new Scanner(System.in);
-        String input;
-
-        while(inGame && alive){
-            System.out.println("Welcome brave astroexplorer. Your ship has broken down in the middle of an asteroid field." +
-                    "You must gather surrounding resources to fix it. but be careful you only have a limited supply of fuel and" +
-                    "oxygen. You will need to return to the ship to resupply.");
-            input = reader.next();
-            inGame = false;
-
-
-        }
-        */
     }
-
-
 
     public void display(String message) {
         System.out.println(WordUtils.wrap(message, 80));

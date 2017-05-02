@@ -15,6 +15,7 @@ public class DatabaseAdapter {
             Class.forName("org.sqlite.JDBC");
 
             Statement statement = this.createStatement();
+            // attempt to create a table regardless of if one exists or not
             statement.executeUpdate("CREATE TABLE IF NOT EXISTS jsonmap (id integer, json string)");
         } catch (SQLException | ClassNotFoundException e) {
             // could not find a JDBC adapter
@@ -24,6 +25,13 @@ public class DatabaseAdapter {
         }
     }
 
+    /**
+     * Update a keyed row with a new value.
+     *
+     * @param key the key to find a row by
+     * @param value the value to update to
+     * @return whether or not the update succeeded
+     */
     public boolean set(KeySpecifier key, String value) {
         try {
             Statement statement = this.createStatement();
@@ -36,6 +44,12 @@ public class DatabaseAdapter {
         }
     }
 
+    /**
+     * Obtain a value from a row using a specified key.
+     *
+     * @param key the key to lookup the value by
+     * @return the value stored in the row
+     */
     public String get(KeySpecifier key) {
         try {
             Statement statement = this.createStatement();
