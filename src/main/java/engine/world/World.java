@@ -10,6 +10,8 @@ public class World {
 
 	private ArrayList<ArrayList<Tile>> tiles = new ArrayList<ArrayList<Tile>>(50);
 	private long time;
+	private final int worldX = 45;
+	private final int worldY = 25;
 
     public World() {
         this.tiles = new ArrayList<>();
@@ -27,15 +29,15 @@ public class World {
 		String w = "";
 		int positionX = (int)player.getPosition().getX();
 		int positionY = (int)player.getPosition().getY();
-		for(int i = 0; i < 50; i++ )
+		for(int i = 0; i < this.worldX; i++)
 		{
-			for(int l = 0; l<50;l++) w+="+---";
-			for(int l = 0; l<50;l++) w+="   ";
+			for(int l = 0; l<this.worldY;l++) w+="+---";
+			for(int l = 0; l<this.worldY;l++) w+="   ";
 			w+="\n";
 			String row = "";
-			for(int j = 0; j < 50; j++)
+			for(int j = 0; j < this.worldY; j++)
 			{
-				int type = this.tiles.get(j).get(i).getType();
+				int type = this.tiles.get(i).get(j).getType();
 
 				if(i == positionX && j == positionY){
 					row += "| @ ";
@@ -55,12 +57,15 @@ public class World {
 			}
 			//row += "\n";
 			w += row;
-			for(int l = 0; l<50;l++) w+="   ";
-			w+= "\n";
+			for(int l = 0; l<this.worldY;l++) w+="   ";
+			if(i%2==0)
+				w+= "|\n";
+			else
+				w+= "+\n";
 		}
-		for(int i = 0; i < 50; i++)
+		for(int i = 0; i < this.worldY; i++)
 		{
-			w +="+----";
+			w +="+---";
 		}
 		return w;
     }

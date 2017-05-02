@@ -9,13 +9,15 @@ import engine.tile.Tile;
 public class RandomWorldGenerator extends WorldGenerator {
 	
 	private int seed;
-	private ArrayList<ArrayList<Tile>> tiles = new ArrayList<ArrayList<Tile>>(50);
+	private final int worldSizeX = 45;
+	private final int worldSizeY = 25;
+	private ArrayList<ArrayList<Tile>> tiles = new ArrayList<ArrayList<Tile>>(this.worldSizeX);
 	
 	public World generate()
 	{
-		for(int i = 0; i < 50; i++)
+		for(int i = 0; i < this.worldSizeX; i++)
 		{
-			tiles.add(new ArrayList<Tile>(50));
+			tiles.add(new ArrayList<Tile>(this.worldSizeY));
 		}
 		int prob[] = new int[100];
 		
@@ -50,7 +52,7 @@ public class RandomWorldGenerator extends WorldGenerator {
 		
 		int randomIndex = generator.nextInt(prob.length);
 		
-		for(int i = 0; i < 44; i++)
+		for(int i = 0; i < (this.worldSizeY)-6; i++)
 		{
 			randomIndex = generator.nextInt(prob.length);
 			tiles.get(0).add(super.getFactory().getTile(prob[randomIndex]));
@@ -59,9 +61,9 @@ public class RandomWorldGenerator extends WorldGenerator {
 		}
 		//Randomly Generate the Rest of Map
 		
-		for(int i = 2; i <50 ; i++)
+		for(int i = 2; i <this.worldSizeX ; i++)
 		{
-			for(int j = 0; j < 50; j++)
+			for(int j = 0; j < this.worldSizeY; j++)
 			{
 				randomIndex = generator.nextInt(prob.length);
 				tiles.get(i).add(super.getFactory().getTile(prob[randomIndex]));
