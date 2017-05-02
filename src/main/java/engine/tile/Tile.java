@@ -82,11 +82,11 @@ public class Tile implements ITile {
 
 	public String toString() {
 		String str;
-		if (type == 1) str = "space tile";
-		if (type == 2) str = "asteroid tile";
-		if (type == 3) str = "resource tile";
-		if (type == 4) str = "ship tile";
-		if (type == 5) str = "shop tile";
+		if (this.type == 1) str = "space tile";
+		if (this.type == 2) str = "asteroid tile";
+		if (this.type == 3) str = "resource tile";
+		if (this.type == 4) str = "ship tile";
+		if (this.type == 5) str = "shop tile";
         else str = "blank tile";
 		return str;
 	}
