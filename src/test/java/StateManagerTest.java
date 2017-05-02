@@ -9,24 +9,32 @@ import static org.junit.Assert.assertEquals;
 
 public class StateManagerTest {
 
+    private static final String DB_PATH = "state_manager_test.sqlite";
+    private static final boolean DEBUG = false;
+
     @Test
     public void testDatabaseSetGet() {
-        DatabaseAdapter adpt = new DatabaseAdapter("state_manager_test.sqlite");
-        Settings settings = new Settings(adpt, 600, 800, 0, true);
+        int x = 600;
+        int y = 800;
+        int vol = 0;
+        boolean vsync = true;
+
+        DatabaseAdapter adpt = new DatabaseAdapter(DB_PATH);
+        Settings settings = new Settings(adpt, x, y, vol, vsync);
         settings.save();
 
         Settings settings2 = new Settings(adpt, true);
-        assertEquals(600, settings2.getResolutionX());
-        assertEquals(800, settings2.getResolutionY());
-        assertEquals(0, settings2.getVolume());
-        assertEquals(true, settings2.getVSync());
+        assertEquals(x, settings2.getResolutionX());
+        assertEquals(y, settings2.getResolutionY());
+        assertEquals(vol, settings2.getVolume());
+        assertEquals(vsync, settings2.getVSync());
     }
 
 
     @AfterClass
     public static void clean() {
-        File sql = new File("state_manager_test.sqlite");
-        sql.delete();
+        File sql = new File(DB_PATH);
+        if (!DEBUG) sql.delete();
     }
 
 }
