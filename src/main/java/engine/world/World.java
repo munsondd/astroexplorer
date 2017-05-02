@@ -1,5 +1,6 @@
 package engine.world;
 
+import engine.entity.MovableEntity;
 import engine.tile.Tile;
 
 import java.util.ArrayList;
@@ -20,40 +21,48 @@ public class World {
     	this.tiles = tiles;
     }
     
-    public String display()
+    public String display(MovableEntity player)
     {
-    	//World String
-    	String w = "";
-    	for(int i = 0; i < 50; i++ )
-    	{
-    		for(int l = 0; l<50;l++) w+="+----";
+		//World String
+		String w = "";
+		int positionX = (int)player.getPosition().getX();
+		int positionY = (int)player.getPosition().getY();
+		for(int i = 0; i < 50; i++ )
+		{
+			for(int l = 0; l<50;l++) w+="+---";
 			for(int l = 0; l<50;l++) w+="   ";
-    		w+="\n";
-    		String row = "";
-    		for(int j = 0; j < 50; j++)
-    		{
-    			int type = this.tiles.get(j).get(i).getType();
-    			if(type == 1)
-    				row += "|    ";
-    			else if(type == 2)
-    				row += "| A  ";
-    			else if (type == 3)
-    				row += "| R  ";
-    			else if (type == 4)
-    				row += "| S  ";
-    			else if (type == 5)
-    				row += "| W  ";
-    		}
-    		//row += "\n";
-    		w += row;
+			w+="\n";
+			String row = "";
+			for(int j = 0; j < 50; j++)
+			{
+				int type = this.tiles.get(j).get(i).getType();
+
+				if(i == positionX && j == positionY){
+					row += "| @ ";
+				}
+				else {
+					if (type == 1)
+						row += "|   ";
+					else if (type == 2)
+						row += "| A ";
+					else if (type == 3)
+						row += "| R ";
+					else if (type == 4)
+						row += "| S ";
+					else if (type == 5)
+						row += "| W ";
+				}
+			}
+			//row += "\n";
+			w += row;
 			for(int l = 0; l<50;l++) w+="   ";
 			w+= "\n";
-    	}
-    	for(int i = 0; i < 50; i++)
-    	{
-    		w +="+----";
-    	}
-    	return w;
+		}
+		for(int i = 0; i < 50; i++)
+		{
+			w +="+----";
+		}
+		return w;
     }
     
 	

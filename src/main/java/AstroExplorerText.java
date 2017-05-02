@@ -110,7 +110,7 @@ public class AstroExplorerText {
         while (this.running) {
             this.display("----------------------------------------------------------");
             if (!ship.WinCheck()) {
-            	System.out.println(worldMap(player,world));
+            	System.out.println(world.display(player));
                 int positionX = (int) player.getPosition().getX();
                 int positionY = (int) player.getPosition().getY();
 
@@ -233,48 +233,7 @@ public class AstroExplorerText {
         */
     }
 
-    public String worldMap(MovableEntity player, World world){
-        //World String
-        String w = "";
-        int positionX = (int)player.getPosition().getX();
-        int positionY = (int)player.getPosition().getY();
-        for(int i = 0; i < 50; i++ )
-        {
-            for(int l = 0; l<50;l++) w+="+---";
-            for(int l = 0; l<50;l++) w+="   ";
-            w+="\n";
-            String row = "";
-            for(int j = 0; j < 50; j++)
-            {
-                int type = world.getTiles().get(j).get(i).getType();
-
-                if(i == positionX && j == positionY){
-                    row += "| @ ";
-                }
-                else {
-                    if (type == 1)
-                        row += "|   ";
-                    else if (type == 2)
-                        row += "| A ";
-                    else if (type == 3)
-                        row += "| R ";
-                    else if (type == 4)
-                        row += "| S ";
-                    else if (type == 5)
-                        row += "| W ";
-                }
-            }
-            //row += "\n";
-            w += row;
-            for(int l = 0; l<50;l++) w+="   ";
-            w+= "\n";
-        }
-        for(int i = 0; i < 50; i++)
-        {
-            w +="+----";
-        }
-        return w;
-    }
+   
 
     public void display(String message) {
         System.out.println(WordUtils.wrap(message, 80));
