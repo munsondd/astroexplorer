@@ -34,10 +34,11 @@ public class FlyingCharacter extends MDecorator {
     }
 
     public void move() {
-        Location loc = this.getPosition();
-        loc.add(this.getCmp().getVelocityX(), this.getCmp().getVelocityY());
 
+        Location loc = this.getPosition();
         Character ch = (Character) this.getCmp();
+        loc.add(ch.getVelocityX(), ch.getVelocityY());
+
         Statistics cstats = ch.getStatistics();
         cstats.modifyFuel(-FUEL_DEPLETION);
         if (cstats.getOxygen() > 0) cstats.modifyOxygen(-OXYGEN_DEPLETION);

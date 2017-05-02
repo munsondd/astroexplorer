@@ -21,13 +21,14 @@ public class WalkingCharacter extends MDecorator {
     public void move() {
 
         Location loc = this.getPosition();
-        loc.add(this.getCmp().getVelocityX(), this.getCmp().getVelocityY());
+        Character ch = (Character) this.getCmp();
+        loc.add(ch.getVelocityX(), ch.getVelocityY());
 
         MovableEntity cmp = this.getCmp();
-        cmp.setVelocityX(0.0);
-        cmp.setVelocityY(0.0);
+        ch.setVelocityX(0.0);
+        ch.setVelocityY(0.0);
 
-        Character ch = (Character) cmp;
+
         Statistics cstats = ch.getStatistics();
 
         cstats.modifyFuel(-FUEL_DEPLETION);
