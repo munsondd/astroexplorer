@@ -15,6 +15,10 @@ public class Statistics {
         this.fuel = fuel;
     }
 
+    public void modifyFuel(double mod) {
+        this.fuel += mod;
+    }
+
     public double getHealth() {
         return this.health;
     }
@@ -23,12 +27,20 @@ public class Statistics {
         this.health = health;
     }
 
+    public void modifyHealth(double mod) {
+        this.health += mod;
+    }
+
     public double getOxygen() {
         return this.oxygen;
     }
 
     public void setOxygen(double oxygen) {
         this.oxygen = oxygen;
+    }
+
+    public void modifyOxygen(double mod) {
+        this.oxygen += mod;
     }
 
     public int getInventorySize() {

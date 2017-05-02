@@ -34,6 +34,24 @@ public class Location {
         this.y = y;
     }
 
+    public void addX(double x) {
+        this.x += x;
+    }
+
+    public void addY(double y) {
+        this.y += y;
+    }
+
+    public void add(double x, double y) {
+        this.x += x;
+        this.y += y;
+    }
+
+    public void add(double n) {
+        this.x += n;
+        this.y += n;
+    }
+
     public void setWorld(World world) {
         this.world = world;
     }

@@ -20,23 +20,18 @@ public class WalkingCharacter extends MDecorator {
 
     public void move() {
         Location loc = this.getPosition();
+        loc.add(this.getVelocityX(), this.getVelocityY());
 
-        double newPositionX = loc.getX() + this.getVelocityX();
-        double newPositionY = loc.getY() + this.getVelocityY();
+        MovableEntity cmp = this.getCmp();
+        cmp.setVelocityX(0.0);
+        cmp.setVelocityY(0.0);
 
-        loc.setX(newPositionX);
-        loc.setY(newPositionY);
-
-        this.getCmp().setVelocityX(0.0);
-        this.getCmp().setVelocityY(0.0);
-
-        Character ch = (Character) this.getCmp();
+        Character ch = (Character) cmp;
         Statistics cstats = ch.getStatistics();
-        cstats.setFuel(cstats.getFuel() - FUEL_DEPLETION);
-        if (cstats.getOxygen() > 0)
-            cstats.setOxygen(cstats.getOxygen() - OXYGEN_DEPLETION);
-        else
-            cstats.setHealth(cstats.getHealth() - HEALTH_DEPLETION);
+
+        cstats.modifyFuel(-FUEL_DEPLETION);
+        if (cstats.getOxygen() > 0) cstats.modifyOxygen(-OXYGEN_DEPLETION);
+        else cstats.modifyHealth(-HEALTH_DEPLETION);
     }
 
     public Location drill() {

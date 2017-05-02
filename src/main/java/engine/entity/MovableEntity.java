@@ -30,8 +30,12 @@ public abstract class MovableEntity extends Entity {
         return this.velocityX;
     }
 
-    public void setVelocityX(double xVelocity) {
-        this.velocityX = xVelocity;
+    public void setVelocityX(double velocityX) {
+        this.velocityX = velocityX;
+    }
+
+    public void addVelocityX(double velocityX) {
+        this.velocityX += velocityX;
     }
 
     public double getVelocityY() {
@@ -42,9 +46,23 @@ public abstract class MovableEntity extends Entity {
         this.velocityY = velocityY;
     }
 
+    public void addVelocityY(double velocityY) {
+        this.velocityY += velocityY;
+    }
+
     public void setVelocity(double velocityX, double velocityY) {
         this.velocityX = velocityX;
         this.velocityY = velocityY;
+    }
+
+    public void addVelocity(double velocityX, double velocityY) {
+        this.velocityX += velocityX;
+        this.velocityY += velocityY;
+    }
+
+    public void setVelocity(double velocity) {
+        this.velocityX += velocity;
+        this.velocityY += velocity;
     }
 
     public double getDirection() {
