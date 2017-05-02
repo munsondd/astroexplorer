@@ -57,7 +57,6 @@ public class World {
 			}
 			//row += "\n";
 			w += row;
-			for(int l = 0; l<this.worldY;l++) w+="   ";
 			if(i%2==0)
 				w+= "|\n";
 			else
