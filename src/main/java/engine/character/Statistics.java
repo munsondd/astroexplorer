@@ -59,7 +59,6 @@ public class Statistics {
         this.oxygen = 100;
         this.inventorySize = 10;
     }
-
     public String toString(){
        return "STATS\n" +
         "----------------\n" +

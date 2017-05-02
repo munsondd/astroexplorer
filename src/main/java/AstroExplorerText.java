@@ -118,7 +118,12 @@ public class AstroExplorerText {
 
                 if (currentTile.getType() == 1) {
                     player = new FlyingCharacter(player.getPosition(), player.getHeight(), player.getWidth(), player.getCmp());
-                } else {
+                }
+                else if (currentTile.getType() ==4 || currentTile.getType() == 5){
+                    Character ch = (Character)player.getCmp();
+                    ch.getStatistics().reset();
+                }
+                else {
                     player = new WalkingCharacter(player.getPosition(), player.getHeight(), player.getWidth(), player.getCmp());
                 }
                 this.display(player.toString());
@@ -176,7 +181,7 @@ public class AstroExplorerText {
                 }
                 player.move();
 
-                if (player.getPosition().getX() > 50 || player.getPosition().getX() < 0 || player.getPosition().getY() < 0 || player.getPosition().getY() > 50) {
+                if (player.getPosition().getX() > world.getX() || player.getPosition().getX() < 0 || player.getPosition().getY() < 0 || player.getPosition().getY() > world.getY()) {
                     this.alive = false;
                     this.display("You floated off into the abyss of space and died");
                     //temporary fix for out of bounds error

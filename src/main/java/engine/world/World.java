@@ -71,7 +71,12 @@ public class World {
 		World w = wgen.generate();
 		this.tiles = w.getTiles();
 	}
-	
+	public final int getY() {
+    	return this.worldY;
+	}
+	public final int getX() {
+    	return this. worldX;
+	}
 	public ArrayList<ArrayList<Tile>> getTiles()
 	{
 		return this.tiles;
