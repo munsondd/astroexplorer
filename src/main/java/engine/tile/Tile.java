@@ -87,7 +87,7 @@ public class Tile implements ITile {
 		if (type == 3) str = "resource tile";
 		if (type == 4) str = "ship tile";
 		if (type == 5) str = "shop tile";
-        else str = "unknown";
+        else str = "blank tile";
 		return str;
 	}
 

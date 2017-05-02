@@ -1,7 +1,10 @@
 import engine.character.Character;
+import engine.database.DatabaseAdapter;
 import engine.entity.MDecorator;
 import engine.inventory.Item;
 import engine.inventory.Shop;
+import engine.state.PlayerState;
+import engine.state.WorldState;
 import engine.text.Constants;
 import engine.tile.Tile;
 import engine.world.Location;
@@ -16,6 +19,7 @@ public class AstroExplorerText {
     // the game will block on this unless System.exit(); is called
     private boolean running = true;
     private boolean alive = true;
+    private boolean load = false;
     private Scanner in = new Scanner(System.in);
 
     // toggle this to increase verbosity
@@ -30,6 +34,8 @@ public class AstroExplorerText {
                 break;
             }
             if(in.equals("load")){
+                load = true;
+                break;
             }
         }
     }
@@ -60,22 +66,43 @@ public class AstroExplorerText {
     public void start() {
         clear();
 
-        this.display(Constants.WELCOME);
-        this.display(Constants.NAME_PROMPT);
+        // create a new database adapter
+        DatabaseAdapter adpt = new DatabaseAdapter("astroexplorer.sqlite");
 
-        // record the name of the user
-        String name = this.prompt();
+        WorldState state = new WorldState(adpt, "astroexplorer.sqlite");
+        PlayerState pstate = new PlayerState(adpt, "astroexplorer.sqlite");
 
-        // create an empty world object
         World world = new World();
-        RandomWorldGenerator r = new RandomWorldGenerator(50);
-        // initialize the world using a random generation scheme
-        world.init(r);
+        String name;
+        Character chr;
+        if (!load) {
+            this.display(Constants.WELCOME);
+            this.display(Constants.NAME_PROMPT);
+
+            // record the name of the user
+            name = this.prompt();
+            chr = new Character(0, 1, 1, true, 0.0, name);
+            pstate.setCharacter(chr);
+            pstate.save();
+
+            // create an empty world object
+            RandomWorldGenerator r = new RandomWorldGenerator(50);
+            // initialize the world using a random generation scheme
+            world.init(r);
+            state.setWorld(world);
+            state.save();
+        } else {
+            state.load();
+            world = state.getWorld();
+
+            pstate.load();
+            chr = pstate.getCharacter();
+            name = chr.getName();
+        }
         
         // sets ship parts as broken and victory condition as false
         Shop ship = new Shop(false, false, false, false);
 
-        Character chr = new Character(0, 1, 1, true, 0.0, name);
         Location start = new Location(1.0, 2.0, world);
         MDecorator player = new WalkingCharacter(start, 1, 1, chr);
 
@@ -203,7 +230,7 @@ public class AstroExplorerText {
                 clear();
                 break;
             default:
-                this.display("Unknown command: please try again.");
+                // this.display("Unknown command: please try again.");
         }
     }
 

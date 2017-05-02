@@ -3,11 +3,9 @@ package engine.inventory;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Inventory extends Item{
+public class Inventory extends Item {
 
     private List<Item> items;
-    private String name;
-    private int type, quantity;
 
     public Inventory(String name, int type, int quantity) {
         super(name, type, quantity);
