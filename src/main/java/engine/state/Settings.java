@@ -21,14 +21,7 @@ public class Settings extends StateManager {
 
     public Settings(DatabaseAdapter adapter, boolean load) {
         super(adapter);
-        if (!load) return;
-
-        Settings tmp = super.load(this.getClass());
-
-        // this.resolutionX = tmp.resolutionX;
-        // this.resolutionY = tmp.resolutionY;
-        // this.volume = tmp.volume;
-        // this.vsync = tmp.vsync;
+        if (load) this.load();
     }
 
     public void setResolution(int x, int y) {
@@ -66,6 +59,14 @@ public class Settings extends StateManager {
 
     public boolean getVSync() {
         return this.vsync;
+    }
+
+    public void load() {
+        Settings tmp = super.load(this.getClass());
+        this.resolutionX = tmp.resolutionX;
+        this.resolutionY = tmp.resolutionY;
+        this.volume = tmp.volume;
+        this.vsync = tmp.vsync;
     }
 
     @Override

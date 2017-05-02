@@ -13,7 +13,10 @@ public class DatabaseAdapter {
 
         try {
             Class.forName("org.sqlite.JDBC");
-        } catch (ClassNotFoundException e) {
+
+            Statement statement = this.createStatement();
+            statement.executeUpdate("CREATE TABLE IF NOT EXISTS jsonmap (id integer, json string)");
+        } catch (SQLException | ClassNotFoundException e) {
             // could not find a JDBC adapter
             // warn user that sessions will not be saved
             System.out.print("WARNING: SQLite driver failed to load. Game state will not be saved.");
@@ -24,7 +27,6 @@ public class DatabaseAdapter {
     public boolean set(KeySpecifier key, String value) {
         try {
             Statement statement = this.createStatement();
-            statement.executeUpdate("CREATE TABLE IF NOT EXISTS jsonmap (id integer, json string)");
             statement.executeUpdate("DELETE FROM jsonmap WHERE id=" + key.ordinal());
             statement.executeUpdate("INSERT INTO jsonmap VALUES(" + key.ordinal() + ", '" + value + "')");
             return true;

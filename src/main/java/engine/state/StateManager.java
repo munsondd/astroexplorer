@@ -4,21 +4,18 @@ import engine.Game;
 import engine.database.DatabaseAdapter;
 import engine.database.KeySpecifier;
 
-import javax.xml.crypto.Data;
-
 public abstract class StateManager {
 
     private transient String filename;
     private transient DatabaseAdapter adapter;
 
-    public StateManager(DatabaseAdapter adapter) {
-        this.filename = "astroexplorer.sqlite";
+    public StateManager(DatabaseAdapter adapter, String filename) {
         this.adapter = adapter;
+        this.filename = filename;
     }
 
-    public StateManager(DatabaseAdapter adapter, String filename) {
-        this.filename = filename;
-        this.adapter = adapter;
+    public StateManager(DatabaseAdapter adapter) {
+        this(adapter, "astroexplorer.sqlite");
     }
 
     public String getFilename() {
