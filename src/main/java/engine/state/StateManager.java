@@ -8,6 +8,11 @@ public abstract class StateManager {
     private String filename;
     private DatabaseAdapter adapter;
 
+    public StateManager() {
+        this.filename = "astroexplorer.sqlite";
+        this.adapter = new DatabaseAdapter(filename);
+    }
+
     public StateManager(String filename) {
         this.filename = filename;
         this.adapter = new DatabaseAdapter(filename);
@@ -29,7 +34,7 @@ public abstract class StateManager {
     /**
      * All stores must be serializable to JSON, and classes must
      * handle serialization and deserialization on their own.
-     * 
+     *
      * @return String the serialized JSON string
      */
     public abstract String serialize();
