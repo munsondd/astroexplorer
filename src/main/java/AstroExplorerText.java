@@ -1,7 +1,5 @@
 import engine.character.Character;
 import engine.entity.MDecorator;
-import engine.entity.MovableEntity;
-import engine.inventory.Inventory;
 import engine.inventory.Item;
 import engine.inventory.Shop;
 import engine.text.Constants;
@@ -26,7 +24,7 @@ public class AstroExplorerText {
     public void MainMenu() {
         boolean inMenu = true;
         while(inMenu) {
-            this.display(Constants.MAINMENU);
+            this.display(Constants.MAIN_MENU);
             String in = this.prompt().toLowerCase();
             dispatch(in);
             if(in.equals("start")){
@@ -64,7 +62,7 @@ public class AstroExplorerText {
     public void start() {
         this.display(Constants.WELCOME);
         //load character into world
-        this.display(Constants.NAMEPROPMT);
+        this.display(Constants.NAME_PROMPT);
         String name = this.prompt();
         this.dispatch(name);
 
@@ -74,7 +72,7 @@ public class AstroExplorerText {
         
         world.init(r);
         
-        Location startingPosition = new Location(1.0,2.0,world);
+        Location startingPosition = new Location(1.0, 2.0, world);
 
         Shop ship = new Shop(false, false, false, false); //sets ship parts as broken and victory condition as false
 
@@ -106,10 +104,10 @@ public class AstroExplorerText {
                 String in = this.prompt().toLowerCase();
                 this.dispatch(in);
                 if (in.equals("help")) {
-                    this.display(Constants.HELPMESSAGE);
+                    this.display(Constants.HELP_MESSAGE);
                 }
                 if (in.equals("hints")) {
-                    this.display(Constants.HINTSMESSAGE);
+                    this.display(Constants.HINTS_MESSAGE);
                 }
                 if (in.equals("repairs")) {
                     this.display(ship.toString());

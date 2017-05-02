@@ -1,11 +1,8 @@
 package engine.inventory;
 
-import java.util.ArrayList;
 import java.util.Scanner;
 
 import engine.character.Character;
-import engine.character.Statistics;
-import engine.entity.Entity;
 import engine.text.Constants;
 
 
@@ -35,7 +32,7 @@ public class Shop {
     public void EnterShop(Shop ship, Character ch) {
         boolean inShop = true;
         while(inShop) {
-            System.out.println(Constants.ShopMain);
+            System.out.println(Constants.SHOP_MAIN);
             String in = prompt().toLowerCase();
             if(in.equals("heal")){
                 ship.RefilHealth(ch);
@@ -44,7 +41,7 @@ public class Shop {
                 ship.RefilFuel(ch);
             }
             if(in.equals("repair")){
-                System.out.println(Constants.Repairs);
+                System.out.println(Constants.REPAIRS);
                 String input = prompt().toLowerCase();
                 if(input.equals("engines")){
                     ship.SetEngineRepair();
