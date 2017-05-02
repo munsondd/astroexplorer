@@ -4,13 +4,11 @@ import engine.entity.MDecorator;
 import engine.entity.MovableEntity;
 import engine.world.Location;
 
-import java.time.Year;
-
 public class FlyingCharacter extends MDecorator {
 
-    private final int OXDEPLETION = 2;
-    private final int FUELDEPLETION = 2;
-    private final int HEALTHDEPLETION = 2;
+    private final int OXYGEN_DEPLETION = 2;
+    private final int FUEL_DEPLETION = 2;
+    private final int HEALTH_DEPLETION = 2;
 
     private double propulsionPower = 0;
 
@@ -33,20 +31,21 @@ public class FlyingCharacter extends MDecorator {
     }
 
     public void move() {
-        double newXposition = this.getPosition().getX() + this.getCmp().getVelocityX();
-        double newYposition = this.getPosition().getY() + this.getCmp().getVelocityY();
+        Location loc = this.getPosition();
 
-        this.getPosition().setX(newXposition);
-        this.getPosition().setY((newYposition));
+        double newXposition = loc.getX() + this.getVelocityX();
+        double newYposition = loc.getY() + this.getVelocityY();
 
-        Character ch = (Character)this.getCmp();
-        ch.getStatistics().setFuel(ch.getStatistics().getFuel() - FUELDEPLETION);
-        if(ch.getStatistics().getOxygen()>0)
-            ch.getStatistics().setOxygen(ch.getStatistics().getOxygen() - OXDEPLETION);
+        loc.setX(newXposition);
+        loc.setY((newYposition));
+
+        Character ch = (Character) this.getCmp();
+        Statistics cstats = ch.getStatistics();
+        cstats.setFuel(cstats.getFuel() - FUEL_DEPLETION);
+        if (cstats.getOxygen() > 0)
+            cstats.setOxygen(cstats.getOxygen() - OXYGEN_DEPLETION);
         else
-            ch.getStatistics().setHealth(ch.getStatistics().getHealth() - HEALTHDEPLETION);
-
-
+            cstats.setHealth(cstats.getHealth() - HEALTH_DEPLETION);
     }
 
     public void propel() {
@@ -54,10 +53,12 @@ public class FlyingCharacter extends MDecorator {
         double newVelocityY = this.getVelocityY() + (this.propulsionPower * Math.sin(this.getDirection()));
         this.setVelocity(newVelocityX, newVelocityY);
     }
+
     public String toString() {
         String str = "you are currently flying through space!\n" +
                 "Velocity: X = " + this.getCmp().getVelocityX() + " Y = " + this.getCmp().getVelocityY() + "\n" +
                 "Position: X = "+ this.getPosition().getX() + " Y = " + this.getPosition().getY() + "\n";
         return str;
     }
+
 }

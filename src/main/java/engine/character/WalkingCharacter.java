@@ -6,9 +6,9 @@ import engine.world.Location;
 
 public class WalkingCharacter extends MDecorator {
 
-    private final int OXDEPLETION = 2;
-    private final int FUELDEPLETION = 2;
-    private final int HEALTHDEPLETION = 2;
+    private final int OXYGEN_DEPLETION = 2;
+    private final int FUEL_DEPLETION = 2;
+    private final int HEALTH_DEPLETION = 2;
 
     public WalkingCharacter(Location position, int height, int width, MovableEntity cmp){
         super(position, height, width, true, cmp);
@@ -19,23 +19,24 @@ public class WalkingCharacter extends MDecorator {
     }
 
     public void move() {
-
+        Location loc = this.getPosition();
         
-        double newPositionX = this.getPosition().getX() + this.getCmp().getVelocityX();
-        double newPositionY = this.getPosition().getY() + this.getCmp().getVelocityY();
+        double newPositionX = loc.getX() + this.getVelocityX();
+        double newPositionY = loc.getY() + this.getVelocityY();
 
-        this.getPosition().setX(newPositionX);
-        this.getPosition().setY(newPositionY);
+        loc.setX(newPositionX);
+        loc.setY(newPositionY);
 
         this.getCmp().setVelocityX(0.0);
         this.getCmp().setVelocityY(0.0);
 
-        Character ch = (Character)this.getCmp();
-        ch.getStatistics().setFuel(ch.getStatistics().getFuel() - FUELDEPLETION);
-        if(ch.getStatistics().getOxygen()>0)
-            ch.getStatistics().setOxygen(ch.getStatistics().getOxygen()-OXDEPLETION);
+        Character ch = (Character) this.getCmp();
+        Statistics cstats = ch.getStatistics();
+        cstats.setFuel(cstats.getFuel() - FUEL_DEPLETION);
+        if (cstats.getOxygen() > 0)
+            cstats.setOxygen(cstats.getOxygen() - OXYGEN_DEPLETION);
         else
-            ch.getStatistics().setHealth(ch.getStatistics().getHealth() - HEALTHDEPLETION);
+            cstats.setHealth(cstats.getHealth() - HEALTH_DEPLETION);
     }
 
     public Location drill() {

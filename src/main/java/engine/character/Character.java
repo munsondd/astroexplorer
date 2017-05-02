@@ -14,18 +14,17 @@ public class Character extends MovableEntity {
     public Character(int sprite, int height, int width, boolean solid, double direction, String name) {
         super(sprite, height, width, solid, direction);
         this.name = name;
-         this.playTime = 0;
-         this.backpack = new Inventory("", 0, 0);
-         this.stats = new Statistics();
-
-
+        this.playTime = 0;
+        this.backpack = new Inventory("", 0, 0);
+        this.stats = new Statistics();
     }
+
     public Character(int sprite, int height, int width, boolean solid, double direction, String name, int playTime, Inventory backpack, Statistics stats) {
         super(sprite, height, width, solid, direction);
         this.name = name;
         this.playTime = playTime;
+        this.backpack = backpack;
         this.stats = stats;
-
     }
 
     public void move() {
