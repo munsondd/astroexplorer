@@ -121,16 +121,16 @@ public class AstroExplorerText {
                     this.display(ch.getStatistics().toString());
                 }
                 if (in.equals("right")) {
-                    player.setVelocityY(player.getVelocityY() + 1);
+                    player.getCmp().setVelocityY(player.getCmp().getVelocityY() + 1);
                 }
                 if (in.equals("left")) {
-                    player.setVelocityY(player.getVelocityY() - 1);
+                    player.getCmp().setVelocityY(player.getCmp().getVelocityY() - 1);
                 }
                 if (in.equals("up")) {
-                    player.setVelocityX(player.getVelocityX() - 1);
+                    player.getCmp().setVelocityX(player.getCmp().getVelocityX() - 1);
                 }
                 if (in.equals("down")) {
-                    player.setVelocityX(player.getVelocityX() + 1);
+                    player.getCmp().setVelocityX(player.getCmp().getVelocityX() + 1);
                 }
                 if (in.equals("quit")) {
                     this.running = false;
@@ -158,7 +158,7 @@ public class AstroExplorerText {
                 }
                 //move the player to next tile
                 player.move();
-                //check to see if player has left the map
+                //cheack to see if player has left the map
                 if (player.getPosition().getX() > world.getX() || player.getPosition().getX() < 0 || player.getPosition().getY() < 0 || player.getPosition().getY() > world.getY()) {
                     this.alive = false;
                     this.display("You floated off into the abyss of space and died");

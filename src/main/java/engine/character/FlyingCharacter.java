@@ -33,8 +33,8 @@ public class FlyingCharacter extends MDecorator {
     }
 
     public void move() {
-        double newXposition = this.getPosition().getX() + this.getVelocityX();
-        double newYposition = this.getPosition().getY() + this.getVelocityY();
+        double newXposition = this.getPosition().getX() + this.getCmp().getVelocityX();
+        double newYposition = this.getPosition().getY() + this.getCmp().getVelocityY();
 
         this.getPosition().setX(newXposition);
         this.getPosition().setY((newYposition));
@@ -56,7 +56,7 @@ public class FlyingCharacter extends MDecorator {
     }
     public String toString() {
         String str = "you are currently flying through space!\n" +
-                "Velocity: X = " + this.getVelocityX() + " Y = " + this.getVelocityY() + "\n" +
+                "Velocity: X = " + this.getCmp().getVelocityX() + " Y = " + this.getCmp().getVelocityY() + "\n" +
                 "Position: X = "+ this.getPosition().getX() + " Y = " + this.getPosition().getY() + "\n";
         return str;
     }

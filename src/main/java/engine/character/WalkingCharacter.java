@@ -21,14 +21,14 @@ public class WalkingCharacter extends MDecorator {
     public void move() {
 
         
-        double newPositionX = this.getPosition().getX() + this.getVelocityX();
-        double newPositionY = this.getPosition().getY() + this.getVelocityY();
+        double newPositionX = this.getPosition().getX() + this.getCmp().getVelocityX();
+        double newPositionY = this.getPosition().getY() + this.getCmp().getVelocityY();
 
         this.getPosition().setX(newPositionX);
         this.getPosition().setY(newPositionY);
 
-        this.setVelocityX(0.0);
-        this.setVelocityY(0.0);
+        this.getCmp().setVelocityX(0.0);
+        this.getCmp().setVelocityY(0.0);
 
         Character ch = (Character)this.getCmp();
         ch.getStatistics().setFuel(ch.getStatistics().getFuel() - FUELDEPLETION);
