@@ -1,8 +1,12 @@
 package engine.inventory;
 
 import java.util.ArrayList;
+import java.util.Scanner;
+
+import engine.character.Character;
 import engine.character.Statistics;
 import engine.entity.Entity;
+import engine.text.Constants;
 
 
 public class Shop {
@@ -14,6 +18,7 @@ public class Shop {
     boolean Hull;
     boolean LifeSupport;
     boolean Win;
+    private Scanner in = new Scanner(System.in);
 
 
     public Shop(boolean e, boolean h, boolean ls, boolean w) {
@@ -21,6 +26,58 @@ public class Shop {
         this.Hull = h;
         this.LifeSupport = ls;
         this.Win = w;
+    }
+
+    public String prompt() {
+        return this.in.next();
+    }
+
+    public void EnterShop(Shop ship, Character ch) {
+        boolean inShop = true;
+        while(inShop) {
+            System.out.println(Constants.ShopMain);
+            String in = prompt().toLowerCase();
+            if(in.equals("heal")){
+                ship.RefilHealth(ch);
+            }
+            if(in.equals("fuel")){
+                ship.RefilFuel(ch);
+            }
+            if(in.equals("repair")){
+                System.out.println(Constants.Repairs);
+                String input = prompt().toLowerCase();
+                if(input.equals("engines")){
+                    ship.SetEngineRepair();
+                }
+                if(input.equals("hull")){
+                    ship.SetHullRepair();
+                }
+                if(input.equals("lifesupport")){
+                    ship.SetLSRepair();
+                }
+            }
+            if(in.equals("exit")){
+                inShop = false;
+            }
+        }
+    }
+
+
+    public boolean BuildEngine(Character player) {
+        System.out.println("Your Need 1 Unit of Iron to fix engines. You have" + Double.toString(player.getStatistics().getFuel()));
+        return true;
+    }
+
+    public void RefilFuel(Character player) {
+        System.out.println("You have " + Double.toString(player.getStatistics().getFuel()) +" fuel left.");
+        player.getStatistics().setFuel(100);
+        System.out.println("Fuel Restored");
+    }
+
+    public void RefilHealth(Character player) {
+        System.out.println("You have " + Double.toString(player.getStatistics().getHealth()) +" Health left.");
+        player.getStatistics().setHealth(100);
+        System.out.println("Health Restored");
     }
 
     public boolean buyItem(Item i) {
@@ -70,10 +127,10 @@ public class Shop {
 
     public String toString(){
         return "SHIP REPAIR STATUS\n" +
-            "-----------------------------\n" +
-            "Engine Status: " + FixCheck(Engine) +
-            "\nHull Status: " + FixCheck(Hull) +
-            "\nLifeSupport Status: " + FixCheck(LifeSupport);
+                "-----------------------------\n" +
+                "Engine Status: " + FixCheck(Engine) +
+                "\nHull Status: " + FixCheck(Hull) +
+                "\nLifeSupport Status: " + FixCheck(LifeSupport);
     }
 
     /*public void upgrade(int type, int level) {

@@ -56,32 +56,6 @@ public class AstroExplorerText {
         currentTile.setType(2);
     }
 
-    public void Shop() {
-        boolean inShop = true;
-        while(inShop) {
-            this.display(Constants.ShopMain);
-            String in = this.prompt().toLowerCase();
-            dispatch(in);
-            if(in.equals("heal")){
-
-            }
-            if(in.equals("upgrade")){
-                boolean upgrades = true;
-                while(upgrades){
-                    this.display(Constants.ShopUpgrade);
-                    in = this.prompt().toLowerCase();
-                    dispatch(in);
-                    upgrades = false;
-                }
-            }
-            if(in.equals("repair")){
-                inShop = false;
-            }
-            if(in.equals("exit")){
-                inShop = false;
-            }
-        }
-    }
 
     /**
      * Starts the game loop. This will block until the
@@ -165,7 +139,8 @@ public class AstroExplorerText {
                 }
                 if (in.equals("shop")) {
                     if (currentTile.getType() == 5) {
-                        Shop();
+                        Character ch = (Character) player.getCmp();
+                        ship.EnterShop(ship, ch);
                     } else {
                         this.display("You are not in the shop right now");
                     }

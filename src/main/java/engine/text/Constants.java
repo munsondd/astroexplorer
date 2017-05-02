@@ -14,7 +14,7 @@ public class Constants {
             "Welcome to the Shop. What would you like to do?\n(1) Heal\n" +
             "(2) Upgrade \n(3) Repairs\n(4) Exit";
 
-    public static final String ShopUpgrade = "===================Upgrade===================\n +" +
+    public static final String Repairs = "===================Upgrade===================\n +" +
             "What would you like to Upgrade?\n(1) Health\n" +
             "(2) Oxygen \n(3) Fuel\n(4) Back";
 
