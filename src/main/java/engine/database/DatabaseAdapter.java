@@ -27,23 +27,23 @@ public class DatabaseAdapter {
 
     }
 
-    public boolean set(int key, String value) {
+    public boolean set(RowSpecifier key, String value) {
         try {
             Connection connection = this.getConnection();
             Statement statement = connection.createStatement();
             statement.executeUpdate("CREATE TABLE IF NOT EXISTS jsonmap (id integer, json string)");
-            statement.executeUpdate("INSERT INTO jsonmap values(" + key + ", '" + value + "')");
+            statement.executeUpdate("INSERT INTO jsonmap values(" + key.ordinal() + ", '" + value + "')");
             return true;
         } catch(SQLException e) {
             return false;
         }
     }
 
-    public String get(int key) {
+    public String get(RowSpecifier key) {
         try {
             Connection connection = this.getConnection();
             Statement statement = connection.createStatement();
-            ResultSet rs = statement.executeQuery("SELECT json FROM jsonmap WHERE id=" + key);
+            ResultSet rs = statement.executeQuery("SELECT json FROM jsonmap WHERE id=" + key.ordinal());
             // we only care about the first entry, because they are unique
             rs.next();
             return rs.getString("json");
