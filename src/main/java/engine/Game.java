@@ -14,9 +14,9 @@ public class Game {
 	private Game instance;
 
     public Game() {
-        this.settings = new Settings("./settings.db");
+        this.settings = new Settings(null, 0, 0, 0, true);
         this.world = new World();
-        this.state = new GameState("./astroexplorer.db");
+        this.state = new GameState(null, "./astroexplorer.db");
         this.instance = new Game();
     }
 

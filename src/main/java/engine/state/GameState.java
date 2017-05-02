@@ -1,5 +1,6 @@
 package engine.state;
 
+import engine.database.DatabaseAdapter;
 import engine.database.KeySpecifier;
 import engine.world.World;
 
@@ -10,8 +11,8 @@ public class GameState extends StateManager {
 	private char Character;
 	private World world;
 
-    public GameState(String filename) {
-        super(filename);
+    public GameState(DatabaseAdapter adapter, String filename) {
+        super(adapter, filename);
     }
 	
 	public void load(String in) {

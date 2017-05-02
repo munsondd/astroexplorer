@@ -25,7 +25,8 @@ public class DatabaseAdapter {
         try {
             Statement statement = this.createStatement();
             statement.executeUpdate("CREATE TABLE IF NOT EXISTS jsonmap (id integer, json string)");
-            statement.executeUpdate("INSERT INTO jsonmap values(" + key.ordinal() + ", '" + value + "')");
+            statement.executeUpdate("DELETE FROM jsonmap WHERE id=" + key.ordinal());
+            statement.executeUpdate("INSERT INTO jsonmap VALUES(" + key.ordinal() + ", '" + value + "')");
             return true;
         } catch(SQLException e) {
             e.printStackTrace();

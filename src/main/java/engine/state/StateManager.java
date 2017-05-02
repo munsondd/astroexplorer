@@ -1,21 +1,24 @@
 package engine.state;
 
+import engine.Game;
 import engine.database.DatabaseAdapter;
 import engine.database.KeySpecifier;
+
+import javax.xml.crypto.Data;
 
 public abstract class StateManager {
 
     private String filename;
     private DatabaseAdapter adapter;
 
-    public StateManager() {
+    public StateManager(DatabaseAdapter adapter) {
         this.filename = "astroexplorer.sqlite";
-        this.adapter = new DatabaseAdapter(filename);
+        this.adapter = adapter;
     }
 
-    public StateManager(String filename) {
+    public StateManager(DatabaseAdapter adapter, String filename) {
         this.filename = filename;
-        this.adapter = new DatabaseAdapter(filename);
+        this.adapter = adapter;
     }
 
     public String getFilename() {
@@ -38,5 +41,17 @@ public abstract class StateManager {
      * @return String the serialized JSON string
      */
     public abstract String serialize();
+
+    public <T extends StateManager> T load(Class<T> cls) {
+        String json = this.adapter.get(this.getKeySpecifier());
+        Object o = Game.gson.fromJson(json, cls);
+        return cls.cast(o);
+    }
+
+    public boolean save() {
+        KeySpecifier spec = this.getKeySpecifier();
+        String json = Game.gson.toJson(this);
+        return this.adapter.set(spec, json);
+    }
 
 }
