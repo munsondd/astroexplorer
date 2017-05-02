@@ -14,20 +14,11 @@ public class Inventory extends Item{
         this.items = new ArrayList<>();
     }
 
-    /**
-     * Get all the items in this inventory.
-     * @return
-     */
-
-    public int GetQuantity(Item item) {
+    public int getQuantity(Item item) {
         return item.getQuantity();
     }
 
-    public List<Item> getItems() {
-        return this.items;
-    }
-
-    public void PrintBack(){
+    public void printBackpack(){
         System.out.println("BACKPACK\n----------------\n");
         if(!items.isEmpty()) {
             for (Item item : items) {
@@ -37,6 +28,14 @@ public class Inventory extends Item{
         else {
             System.out.println("Nothing is in your BACKPACK");
         }
+    }
+
+    /**
+     * Get all the items in this inventory.
+     * @return
+     */
+    public List<Item> getItems() {
+        return this.items;
     }
 
     /**

@@ -12,6 +12,10 @@ public class RandomWorldGenerator extends WorldGenerator {
 	private final int worldSizeX = 45;
 	private final int worldSizeY = 25;
 	private ArrayList<ArrayList<Tile>> tiles = new ArrayList<ArrayList<Tile>>(this.worldSizeX);
+
+	public RandomWorldGenerator(int seed) {
+		this.seed = seed;
+	}
 	
 	public World generate()
 	{
@@ -84,9 +88,5 @@ public class RandomWorldGenerator extends WorldGenerator {
 	{
 		this.seed = seed;
 	}
-	
-	public RandomWorldGenerator(int seed)
-	{
-		this.seed = seed;
-	}
+
 }

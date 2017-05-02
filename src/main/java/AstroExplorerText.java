@@ -46,13 +46,12 @@ public class AstroExplorerText {
         else {ch.getBackpack().getItems().add(newItem);}
 
         this.display("You just found " + Integer.toString(ammount) + " Units of " + resource);
-        this.display("Total Ammount of  " + resource + ": " + Integer.toString(ch.getBackpack().GetQuantity(newItem)));
+        this.display("Total Ammount of  " + resource + ": " + Integer.toString(ch.getBackpack().getQuantity(newItem)));
 
         currentTile.setResource();
         currentTile.setRRammount();
         currentTile.setType(2);
     }
-
 
     /**
      * Starts the game loop. This will block until the
@@ -136,7 +135,7 @@ public class AstroExplorerText {
                 }
                 if (in.equals("inventory")) {
                     Character ch = (Character) player.getCmp();
-                    ch.getBackpack().PrintBack();
+                    ch.getBackpack().printBackpack();
                 }
                 if (in.equals("shop")) {
                     if (currentTile.getType() == 5) {

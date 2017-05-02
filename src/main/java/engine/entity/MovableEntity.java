@@ -11,6 +11,7 @@ public abstract class MovableEntity extends Entity {
     public MovableEntity(Location position, int height, int width, boolean solid) {
         super(position, height, width, solid);
     }
+
     public MovableEntity(int sprite, int height, int width, boolean solid, double direction) {
         super(sprite, height, width, solid);
         this.direction = direction;

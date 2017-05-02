@@ -14,8 +14,8 @@ public class WalkingCharacter extends MDecorator {
         super(position, height, width, true, cmp);
     }
 
-    public WalkingCharacter(int sprite, int height, int width, boolean solid,double direction, double xVelocity, double yVelocity) {
-        super(sprite, height, width, solid, direction, xVelocity, yVelocity);
+    public WalkingCharacter(int sprite, int height, int width, boolean solid,double direction, double velocityX, double velocityY) {
+        super(sprite, height, width, solid, direction, velocityX, velocityY);
     }
 
     public void move() {

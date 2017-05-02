@@ -13,7 +13,7 @@ public class FlyingCharacter extends MDecorator {
     private double propulsionPower = 0;
 
     public FlyingCharacter(Location position, int height, int width, MovableEntity cmp) {
-        super(position,height,width, true,cmp);
+        super(position, height, width, true, cmp);
     }
 
     public FlyingCharacter(Location position, int height, int width, MovableEntity cmp, double propulsionPower){
@@ -21,8 +21,8 @@ public class FlyingCharacter extends MDecorator {
         this.propulsionPower = propulsionPower;
     }
 
-    public FlyingCharacter(int sprite, int height, int width, boolean solid, double direction, double xVelocity, double yVelocity, double propulsionPower) {
-        super(sprite, height, width, solid, direction, xVelocity, yVelocity);
+    public FlyingCharacter(int sprite, int height, int width, boolean solid, double direction, double velocityX, double velocityY, double propulsionPower) {
+        super(sprite, height, width, solid, direction, velocityX, velocityY);
         this.propulsionPower = propulsionPower;
     }
 

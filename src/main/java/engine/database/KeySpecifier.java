@@ -1,5 +1,5 @@
 package engine.database;
 
 public enum KeySpecifier {
-    SETTINGS, WORLD
+    SETTINGS, WORLD, PLAYER
 }
