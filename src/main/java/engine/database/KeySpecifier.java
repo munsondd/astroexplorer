@@ -1,5 +1,5 @@
 package engine.database;
 
-public enum RowSpecifier {
+public enum KeySpecifier {
     SETTINGS, WORLD
 }

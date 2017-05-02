@@ -1,11 +1,13 @@
 package engine;
 
+import com.google.gson.Gson;
 import engine.state.GameState;
 import engine.state.Settings;
 import engine.world.World;
 
 public class Game {
 
+    public static final Gson gson = new Gson();
 	private Settings settings;
 	private World world;
 	private GameState state;

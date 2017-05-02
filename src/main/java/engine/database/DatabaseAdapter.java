@@ -19,15 +19,7 @@ public class DatabaseAdapter {
         }
     }
 
-    public void save() {
-
-    }
-
-    public void load() {
-
-    }
-
-    public boolean set(RowSpecifier key, String value) {
+    public boolean set(KeySpecifier key, String value) {
         try {
             Connection connection = this.getConnection();
             Statement statement = connection.createStatement();
@@ -39,7 +31,7 @@ public class DatabaseAdapter {
         }
     }
 
-    public String get(RowSpecifier key) {
+    public String get(KeySpecifier key) {
         try {
             Connection connection = this.getConnection();
             Statement statement = connection.createStatement();
@@ -54,6 +46,10 @@ public class DatabaseAdapter {
 
     private Connection getConnection() throws SQLException {
         return DriverManager.getConnection(this.jdbc);
+    }
+
+    public String getPath() {
+        return this.path;
     }
 
 }

@@ -1,8 +1,9 @@
 package engine.state;
 
 import engine.database.DatabaseAdapter;
+import engine.database.KeySpecifier;
 
-public class StateManager {
+public abstract class StateManager {
 
     private String filename;
     private DatabaseAdapter adapter;
@@ -16,12 +17,8 @@ public class StateManager {
         return this.filename;
     }
 
-    public void save() {
+    public abstract KeySpecifier getKeySpecifier();
 
-    }
-
-    public void load() {
-
-    }
+    public abstract String serialize();
 
 }
