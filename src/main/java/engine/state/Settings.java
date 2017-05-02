@@ -1,5 +1,8 @@
 package engine.state;
 
+import engine.Game;
+import engine.database.KeySpecifier;
+
 public class Settings extends StateManager {
 	
 	private int resolutionX;
@@ -47,9 +50,15 @@ public class Settings extends StateManager {
     public boolean getVSync() {
         return this.vsync;
     }
-	
+
+    @Override
+    public KeySpecifier getKeySpecifier() {
+        return KeySpecifier.SETTINGS;
+    }
+
+    @Override
 	public String serialize() {
-		return null;
+		return Game.gson.toJson(this);
 	}
 
 }
