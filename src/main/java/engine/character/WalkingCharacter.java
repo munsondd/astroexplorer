@@ -19,8 +19,9 @@ public class WalkingCharacter extends MDecorator {
     }
 
     public void move() {
+
         Location loc = this.getPosition();
-        loc.add(this.getVelocityX(), this.getVelocityY());
+        loc.add(this.getCmp().getVelocityX(), this.getCmp().getVelocityY());
 
         MovableEntity cmp = this.getCmp();
         cmp.setVelocityX(0.0);

@@ -35,7 +35,7 @@ public class FlyingCharacter extends MDecorator {
 
     public void move() {
         Location loc = this.getPosition();
-        loc.add(this.getVelocityX(), this.getVelocityY());
+        loc.add(this.getCmp().getVelocityX(), this.getCmp().getVelocityY());
 
         Character ch = (Character) this.getCmp();
         Statistics cstats = ch.getStatistics();
