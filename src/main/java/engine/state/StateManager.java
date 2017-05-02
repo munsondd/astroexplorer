@@ -8,8 +8,8 @@ import javax.xml.crypto.Data;
 
 public abstract class StateManager {
 
-    private String filename;
-    private DatabaseAdapter adapter;
+    private transient String filename;
+    private transient DatabaseAdapter adapter;
 
     public StateManager(DatabaseAdapter adapter) {
         this.filename = "astroexplorer.sqlite";
