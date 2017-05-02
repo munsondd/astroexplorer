@@ -32,8 +32,7 @@ public class World {
 		for(int i = 0; i < this.worldX; i++)
 		{
 			for(int l = 0; l<this.worldY;l++) w+="+---";
-			for(int l = 0; l<this.worldY;l++) w+="   ";
-			w+="\n";
+			w+="+\n";
 			String row = "";
 			for(int j = 0; j < this.worldY; j++)
 			{
@@ -55,17 +54,14 @@ public class World {
 						row += "| W ";
 				}
 			}
-			//row += "\n";
 			w += row;
-			if(i%2==0)
-				w+= "|\n";
-			else
-				w+= "+\n";
+			w += "|\n";
 		}
 		for(int i = 0; i < this.worldY; i++)
 		{
 			w +="+---";
 		}
+		w+="+";
 		return w;
     }
     
