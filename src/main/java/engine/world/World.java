@@ -23,8 +23,7 @@ public class World {
     	this.tiles = tiles;
     }
     
-    public String display(MovableEntity player)
-    {
+    public String display(MovableEntity player) {
 		//World String
 		String w = "";
 		int positionX = (int)player.getPosition().getX();
@@ -64,19 +63,21 @@ public class World {
 		w+="+";
 		return w;
     }
-    
-	
+
 	public void init(WorldGenerator wgen) {
 		this.time = 0;
 		World w = wgen.generate();
 		this.tiles = w.getTiles();
 	}
-	public final int getY() {
+
+	public int getY() {
     	return this.worldY;
 	}
-	public final int getX() {
-    	return this. worldX;
+
+	public int getX() {
+    	return this.worldX;
 	}
+
 	public ArrayList<ArrayList<Tile>> getTiles()
 	{
 		return this.tiles;

@@ -58,24 +58,26 @@ public class AstroExplorerText {
      * game exits.
      */
     public void start() {
-        this.display(Constants.WELCOME);
-        //load character into world
-        this.display(Constants.NAME_PROMPT);
-        String name = this.prompt();
-        this.dispatch(name);
+        clear();
 
-        //need to load world.
+        this.display(Constants.WELCOME);
+        this.display(Constants.NAME_PROMPT);
+
+        // record the name of the user
+        String name = this.prompt();
+
+        // create an empty world object
         World world = new World();
         RandomWorldGenerator r = new RandomWorldGenerator(50);
-        
+        // initialize the world using a random generation scheme
         world.init(r);
         
-        Location startingPosition = new Location(1.0, 2.0, world);
+        // sets ship parts as broken and victory condition as false
+        Shop ship = new Shop(false, false, false, false);
 
-        Shop ship = new Shop(false, false, false, false); //sets ship parts as broken and victory condition as false
-
-        Character chr = new Character(0,1,1,true,0.0, "player");
-        MDecorator player = new WalkingCharacter(startingPosition, 1,1,chr);
+        Character chr = new Character(0, 1, 1, true, 0.0, name);
+        Location start = new Location(1.0, 2.0, world);
+        MDecorator player = new WalkingCharacter(start, 1, 1, chr);
 
         while (this.running) {
             this.display("----------------------------------------------------------");
@@ -105,12 +107,7 @@ public class AstroExplorerText {
                 String in = this.prompt().toLowerCase();
                 this.dispatch(in);
                 // handle user input
-                if (in.equals("help")) {
-                    this.display(Constants.HELP_MESSAGE);
-                }
-                if (in.equals("hints")) {
-                    this.display(Constants.HINTS_MESSAGE);
-                }
+
                 if (in.equals("repairs")) {
                     this.display(ship.toString());
                 }
@@ -154,9 +151,9 @@ public class AstroExplorerText {
                     }
 
                 }
-                //move the player to next tile
+                // move the player to next tile
                 player.move();
-                //cheack to see if player has left the map
+                // cheack to see if player has left the map
                 if (player.getPosition().getX() > world.getX() || player.getPosition().getX() < 0 || player.getPosition().getY() < 0 || player.getPosition().getY() > world.getY()) {
                     this.alive = false;
                     this.display("You floated off into the abyss of space and died");
@@ -196,9 +193,28 @@ public class AstroExplorerText {
             case "quit":
             case "exit":
                 System.exit(0);
+            case "help":
+                this.display(Constants.HELP_MESSAGE);
+                break;
+            case "hints":
+                this.display(Constants.HINTS_MESSAGE);
+                break;
+            case "clear":
+                clear();
+                break;
             default:
                 this.display("Unknown command: please try again.");
         }
+    }
+
+    /**
+     * Clear the terminal that is being used for this game.
+     */
+    public static void clear() {
+        final String ANSI_CLS = "\u001b[2J";
+        final String ANSI_HOME = "\u001b[H";
+        System.out.print(ANSI_CLS + ANSI_HOME);
+        System.out.flush();
     }
 
     public static void main(String args[]) {
