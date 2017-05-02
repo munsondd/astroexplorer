@@ -1,38 +1,47 @@
 package engine.inventory;
 
-public class Item implements Cloneable{
-	//private int maxItems = 10;
+public class Item implements Cloneable {
+
     private String name;
     private int type, quantity;
 
-    public Item(String s, int t, int q){
-        this.name = s;
-        this.type = t;
-        this.quantity = q;
+    public Item(String name, int type, int quantity) {
+        this.name = name;
+        this.type = type;
+        this.quantity = quantity;
     }
-    public Item clone()throws CloneNotSupportedException{
-        return (Item)super.clone();
-    }
-    public int GetQuantity(){
+
+    public int getQuantity(){
         return this.quantity;
     }
-    public void AddQuantity(int q) {this.quantity = q; }
-    public void SetQuantity(int q) {
-        this.quantity = q;
+
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
     }
 
-    public int GetType(){
+    public void addQuantity(int add) {
+        this.quantity += add;
+    }
+
+    public int getType(){
         return this.type;
     }
-    public void SetType(int t) {
-        this.type = t;
+
+    public void setType(int type) {
+        this.type = type;
     }
 
-    public String GetName(){
+    public String getName(){
         return this.name;
     }
-    public void SetType(String s) {
-        this.name = s;
+
+    public void setName(String name) {
+        this.name = name;
     }
 
+    @Override
+    public Item clone() {
+        return new Item(this.name, this.type, this.quantity);
     }
+
+}

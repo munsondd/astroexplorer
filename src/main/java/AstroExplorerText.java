@@ -41,8 +41,8 @@ public class AstroExplorerText {
         int ammount = currentTile.getRRammount();
 
         Item newItem = new Item(resource,3, ammount);
-        if(ch.getBackpack().GetName() == resource){
-            ch.getBackpack().AddQuantity(ammount);
+        if(ch.getBackpack().getName() == resource){
+            ch.getBackpack().addQuantity(ammount);
         }
         else {ch.getBackpack().getItems().add(newItem);}
 

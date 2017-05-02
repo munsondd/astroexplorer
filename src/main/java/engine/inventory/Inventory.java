@@ -20,7 +20,7 @@ public class Inventory extends Item{
      */
 
     public int GetQuantity(Item item) {
-        return item.GetQuantity();
+        return item.getQuantity();
     }
 
     public List<Item> getItems() {
@@ -31,7 +31,7 @@ public class Inventory extends Item{
         System.out.println("BACKPACK\n----------------\n");
         if(!items.isEmpty()) {
             for (Item item : items) {
-                System.out.println(item.GetName() + "      " + Integer.toString(item.GetQuantity()));
+                System.out.println(item.getName() + "      " + Integer.toString(item.getQuantity()));
             }
         }
         else {
