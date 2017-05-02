@@ -176,8 +176,12 @@ public class AstroExplorerText {
                 }
                 player.move();
 
-                if (player.getPosition().getX() > 50 || player.getPosition().getX() < 0 || player.getPosition().getY() < 0 || player.getPosition().getY() > 50)
+                if (player.getPosition().getX() > 50 || player.getPosition().getX() < 0 || player.getPosition().getY() < 0 || player.getPosition().getY() > 50) {
                     this.alive = false;
+                    this.display("You floated off into the abyss of space and died");
+                    //temporary fix for out of bounds error
+                    this.running = false;
+                }
             }
             else { running = false;}
         }
@@ -233,7 +237,7 @@ public class AstroExplorerText {
         */
     }
 
-   
+
 
     public void display(String message) {
         System.out.println(WordUtils.wrap(message, 80));
