@@ -1,30 +1,36 @@
 package engine.state;
 
 import java.util.ArrayList;
+import java.util.List;
 
-/**
- * Created by david on 4/29/17.
- */
 public class GameMenu {
-    private ArrayList<String> buttonTexts;
+
+    private List<String> buttonTexts;
     private boolean clickable;
 
-    public void invoke(String text)
-    {
+    public GameMenu() {
+        this.buttonTexts = new ArrayList<>();
+    }
+
+    public void invoke(String text) {
 
     }
-    public boolean isClickable()
-    {
+
+    public boolean isClickable() {
         return this.clickable;
     }
-    public void setClickable(boolean clickable)
-    {
+
+    public void setClickable(boolean clickable) {
         this.clickable = clickable;
     }
-    public boolean addButton(String text)
-    {
-        buttonTexts.add(text);
+
+    public boolean addButton(String text) {
+        this.buttonTexts.add(text);
         return true;
+    }
+
+    public String[] getButtonTexts() {
+        return (String[]) this.buttonTexts.toArray();
     }
 
 }
