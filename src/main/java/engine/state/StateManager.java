@@ -17,8 +17,21 @@ public abstract class StateManager {
         return this.filename;
     }
 
+    /**
+     * The database stores K,V pairs in which K is represented by
+     * a KeySpecifier. This method is to be overridden for a state
+     * class to specify their own row to be stored in.
+     *
+     * @return KeySpecifier the associated row this state is to be stored in
+     */
     public abstract KeySpecifier getKeySpecifier();
 
+    /**
+     * All stores must be serializable to JSON, and classes must
+     * handle serialization and deserialization on their own.
+     * 
+     * @return String the serialized JSON string
+     */
     public abstract String serialize();
 
 }
