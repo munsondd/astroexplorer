@@ -1,9 +1,6 @@
 package engine.database;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 
 public class DatabaseAdapter {
 
@@ -42,16 +39,21 @@ public class DatabaseAdapter {
         }
     }
 
-    private Connection getConnection() {
-        Connection connection = null;
-
+    public String get(int key) {
         try {
-            connection = DriverManager.getConnection(this.jdbc);
+            Connection connection = this.getConnection();
+            Statement statement = connection.createStatement();
+            ResultSet rs = statement.executeQuery("SELECT json FROM jsonmap WHERE id=" + key);
+            // we only care about the first entry, because they are unique
+            rs.next();
+            return rs.getString("json");
         } catch(SQLException e) {
             return null;
         }
+    }
 
-        return connection;
+    private Connection getConnection() throws SQLException {
+        return DriverManager.getConnection(this.jdbc);
     }
 
 }
